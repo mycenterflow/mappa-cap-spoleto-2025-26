@@ -1,0 +1,3595 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_a7c9926de74c41335f42b472fce98067 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+<div style="
+    position: fixed;
+    top: 10px;
+    left: 50px;
+    z-index: 9999;
+    background-color: white;
+    padding: 10px 14px;
+    border: 2px solid #666;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: bold;
+    box-shadow: 2px 2px 6px rgba(0,0,0,0.3);
+">
+    MAPPA CLIENTI
+</div>
+    
+<div style="
+    position: fixed;
+    bottom: 30px;
+    left: 30px;
+    z-index: 9999;
+    background-color: white;
+    padding: 12px;
+    border: 2px solid #666;
+    border-radius: 8px;
+    font-size: 14px;
+    box-shadow: 2px 2px 6px rgba(0,0,0,0.3);
+">
+    <b>Legenda clienti</b><br>
+    <span style="color:lightblue;">●</span> 1 - 19<br>
+    <span style="color:green;">●</span> 20 - 49<br>
+    <span style="color:orange;">●</span> 50 - 99<br>
+    <span style="color:red;">●</span> 100 - 199<br>
+    <span style="color:darkred;">●</span> 200+<br>
+</div>
+    
+            <div class="folium-map" id="map_a7c9926de74c41335f42b472fce98067" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_a7c9926de74c41335f42b472fce98067 = L.map(
+                "map_a7c9926de74c41335f42b472fce98067",
+                {
+                    center: [42.5, 13.0],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 6,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_ae587f1735305b1fea4d75474dc09578 = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 19,
+  "maxNativeZoom": 19,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_ae587f1735305b1fea4d75474dc09578.addTo(map_a7c9926de74c41335f42b472fce98067);
+        
+    
+            var marker_410da71fca5414d64323c7f3ff03ae18 = L.marker(
+                [42.7419133, 12.7211931],
+                {
+}
+            ).addTo(map_a7c9926de74c41335f42b472fce98067);
+        
+    
+            var icon_836a073b4f53e450d11392d518bc3309 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkred",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_7d910f647b81b4d87009b94bc1b41990 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_61b08742bab10899f7faf52ce7ad63a9 = $(`<div id="html_61b08742bab10899f7faf52ce7ad63a9" style="width: 100.0%; height: 100.0%;">     <div style="font-size:14px; line-height:1.5;">         <b>📍 Spoleto, Perugia, Umbria, Italia</b><br>         CAP: 06049<br>         Clienti: <b>7830</b>     </div>     </div>`)[0];
+                popup_7d910f647b81b4d87009b94bc1b41990.setContent(html_61b08742bab10899f7faf52ce7ad63a9);
+            
+        
+
+        marker_410da71fca5414d64323c7f3ff03ae18.bindPopup(popup_7d910f647b81b4d87009b94bc1b41990)
+        ;
+
+        
+    
+    
+                marker_410da71fca5414d64323c7f3ff03ae18.setIcon(icon_836a073b4f53e450d11392d518bc3309);
+            
+    
+            var marker_30ba04c2ec72bed8354a5e6aa3c280de = L.marker(
+                [42.7500822, 12.8899969],
+                {
+}
+            ).addTo(map_a7c9926de74c41335f42b472fce98067);
+        
+    
+            var icon_aae6d3b0c1c63bafa908e4dc3050e0f2 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_b834f28bd9685270d70e85a51d934365 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_4d255117ac783a9e2fc0367ee55dfe62 = $(`<div id="html_4d255117ac783a9e2fc0367ee55dfe62" style="width: 100.0%; height: 100.0%;">     <div style="font-size:14px; line-height:1.5;">         <b>📍 Vallo di Nera, Perugia, Umbria, Italia</b><br>         CAP: 06040<br>         Clienti: <b>155</b>     </div>     </div>`)[0];
+                popup_b834f28bd9685270d70e85a51d934365.setContent(html_4d255117ac783a9e2fc0367ee55dfe62);
+            
+        
+
+        marker_30ba04c2ec72bed8354a5e6aa3c280de.bindPopup(popup_b834f28bd9685270d70e85a51d934365)
+        ;
+
+        
+    
+    
+                marker_30ba04c2ec72bed8354a5e6aa3c280de.setIcon(icon_aae6d3b0c1c63bafa908e4dc3050e0f2);
+            
+    
+            var marker_0c75d53fbc77b8f4668ae6ddbc35b63d = L.marker(
+                [42.8220596, 12.9184578],
+                {
+}
+            ).addTo(map_a7c9926de74c41335f42b472fce98067);
+        
+    
+            var icon_cb1ca966cdd1cb80cb1066ed4e67e123 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "orange",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_de10736de340bfa7f4736704ca283540 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_a59b9d2bafc769747cd043dc20e850e7 = $(`<div id="html_a59b9d2bafc769747cd043dc20e850e7" style="width: 100.0%; height: 100.0%;">     <div style="font-size:14px; line-height:1.5;">         <b>📍 Cerreto di Spoleto, Perugia, Umbria, Italia</b><br>         CAP: 06041<br>         Clienti: <b>72</b>     </div>     </div>`)[0];
+                popup_de10736de340bfa7f4736704ca283540.setContent(html_a59b9d2bafc769747cd043dc20e850e7);
+            
+        
+
+        marker_0c75d53fbc77b8f4668ae6ddbc35b63d.bindPopup(popup_de10736de340bfa7f4736704ca283540)
+        ;
+
+        
+    
+    
+                marker_0c75d53fbc77b8f4668ae6ddbc35b63d.setIcon(icon_cb1ca966cdd1cb80cb1066ed4e67e123);
+            
+    
+            var marker_b39b1bcb9715a7fd719ce22beef9c281 = L.marker(
+                [42.8018369, 13.1088277],
+                {
+}
+            ).addTo(map_a7c9926de74c41335f42b472fce98067);
+        
+    
+            var icon_3858d79a14493174a000b00fb5dfa181 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_ca6cc666cb5f7499b9eba95a861848b4 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_d56724b78a5d8ff41d14b5df679a4ed6 = $(`<div id="html_d56724b78a5d8ff41d14b5df679a4ed6" style="width: 100.0%; height: 100.0%;">     <div style="font-size:14px; line-height:1.5;">         <b>📍 Norcia, Perugia, Umbria, Italia</b><br>         CAP: 06046<br>         Clienti: <b>39</b>     </div>     </div>`)[0];
+                popup_ca6cc666cb5f7499b9eba95a861848b4.setContent(html_d56724b78a5d8ff41d14b5df679a4ed6);
+            
+        
+
+        marker_b39b1bcb9715a7fd719ce22beef9c281.bindPopup(popup_ca6cc666cb5f7499b9eba95a861848b4)
+        ;
+
+        
+    
+    
+                marker_b39b1bcb9715a7fd719ce22beef9c281.setIcon(icon_3858d79a14493174a000b00fb5dfa181);
+            
+    
+            var marker_5bba3649a63300a8f88f07f348854299 = L.marker(
+                [42.837237, 12.7741985],
+                {
+}
+            ).addTo(map_a7c9926de74c41335f42b472fce98067);
+        
+    
+            var icon_9d7c38ae940790125f248698b8915b52 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_3ac997635697e7d0b0cc9cef8f2552a4 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_0b4218dccbfebb669fced6c9769f5299 = $(`<div id="html_0b4218dccbfebb669fced6c9769f5299" style="width: 100.0%; height: 100.0%;">     <div style="font-size:14px; line-height:1.5;">         <b>📍 Campello sul Clitunno, Perugia, Umbria, Italia</b><br>         CAP: 06042<br>         Clienti: <b>36</b>     </div>     </div>`)[0];
+                popup_3ac997635697e7d0b0cc9cef8f2552a4.setContent(html_0b4218dccbfebb669fced6c9769f5299);
+            
+        
+
+        marker_5bba3649a63300a8f88f07f348854299.bindPopup(popup_3ac997635697e7d0b0cc9cef8f2552a4)
+        ;
+
+        
+    
+    
+                marker_5bba3649a63300a8f88f07f348854299.setIcon(icon_9d7c38ae940790125f248698b8915b52);
+            
+    
+            var marker_0b588bb7b3d0129560ffded7d6fcd7b4 = L.marker(
+                [42.877922, 13.0306311],
+                {
+}
+            ).addTo(map_a7c9926de74c41335f42b472fce98067);
+        
+    
+            var icon_d605ae3b623e04c0fbe65b1be52ea015 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightblue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_e31da75d443596123dc004f88d97b7ba = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_0fa91fdf3643d576ba155f05213d7724 = $(`<div id="html_0fa91fdf3643d576ba155f05213d7724" style="width: 100.0%; height: 100.0%;">     <div style="font-size:14px; line-height:1.5;">         <b>📍 Preci, Perugia, Umbria, Italia</b><br>         CAP: 06047<br>         Clienti: <b>18</b>     </div>     </div>`)[0];
+                popup_e31da75d443596123dc004f88d97b7ba.setContent(html_0fa91fdf3643d576ba155f05213d7724);
+            
+        
+
+        marker_0b588bb7b3d0129560ffded7d6fcd7b4.bindPopup(popup_e31da75d443596123dc004f88d97b7ba)
+        ;
+
+        
+    
+    
+                marker_0b588bb7b3d0129560ffded7d6fcd7b4.setIcon(icon_d605ae3b623e04c0fbe65b1be52ea015);
+            
+    
+            var marker_013970c549a16cb050843ff31f7261d1 = L.marker(
+                [42.8232601, 12.6722871],
+                {
+}
+            ).addTo(map_a7c9926de74c41335f42b472fce98067);
+        
+    
+            var icon_89a3a24dfad35dc5049ed2de857d28da = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightblue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_95962b0fde8be1aa088844d5a28a33bd = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_fa82d146d1e210bc1bc26f65e1c1c5d7 = $(`<div id="html_fa82d146d1e210bc1bc26f65e1c1c5d7" style="width: 100.0%; height: 100.0%;">     <div style="font-size:14px; line-height:1.5;">         <b>📍 Castel Ritaldi, Perugia, Umbria, Italia</b><br>         CAP: 06044<br>         Clienti: <b>16</b>     </div>     </div>`)[0];
+                popup_95962b0fde8be1aa088844d5a28a33bd.setContent(html_fa82d146d1e210bc1bc26f65e1c1c5d7);
+            
+        
+
+        marker_013970c549a16cb050843ff31f7261d1.bindPopup(popup_95962b0fde8be1aa088844d5a28a33bd)
+        ;
+
+        
+    
+    
+                marker_013970c549a16cb050843ff31f7261d1.setIcon(icon_89a3a24dfad35dc5049ed2de857d28da);
+            
+    
+            var marker_050869dcd35f3300ff20fa0e414eaae6 = L.marker(
+                [42.8756322, 12.5919828],
+                {
+}
+            ).addTo(map_a7c9926de74c41335f42b472fce98067);
+        
+    
+            var icon_2ad3083f02a21f87f688097698fc0a01 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightblue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_4d25baef8927a5ed1af3d18f484de606 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_7afacfbf1b9b9222c07e5d50e1fb2fe7 = $(`<div id="html_7afacfbf1b9b9222c07e5d50e1fb2fe7" style="width: 100.0%; height: 100.0%;">     <div style="font-size:14px; line-height:1.5;">         <b>📍 Montefalco, Perugia, Umbria, Italia</b><br>         CAP: 06030<br>         Clienti: <b>11</b>     </div>     </div>`)[0];
+                popup_4d25baef8927a5ed1af3d18f484de606.setContent(html_7afacfbf1b9b9222c07e5d50e1fb2fe7);
+            
+        
+
+        marker_050869dcd35f3300ff20fa0e414eaae6.bindPopup(popup_4d25baef8927a5ed1af3d18f484de606)
+        ;
+
+        
+    
+    
+                marker_050869dcd35f3300ff20fa0e414eaae6.setIcon(icon_2ad3083f02a21f87f688097698fc0a01);
+            
+    
+            var marker_ab3efb9c9a6a54a9aa1c4d3b0ecfcb59 = L.marker(
+                [42.879252, 12.7382236],
+                {
+}
+            ).addTo(map_a7c9926de74c41335f42b472fce98067);
+        
+    
+            var icon_9a78a55ee179c4c24c85bda13b62bcd7 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightblue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_80f69027d2d3b16b2943674c6d93955f = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_ab93cde0831b84272b935256b00b6b9e = $(`<div id="html_ab93cde0831b84272b935256b00b6b9e" style="width: 100.0%; height: 100.0%;">     <div style="font-size:14px; line-height:1.5;">         <b>📍 Trevi, Perugia, Umbria, Italia</b><br>         CAP: 06039<br>         Clienti: <b>10</b>     </div>     </div>`)[0];
+                popup_80f69027d2d3b16b2943674c6d93955f.setContent(html_ab93cde0831b84272b935256b00b6b9e);
+            
+        
+
+        marker_ab3efb9c9a6a54a9aa1c4d3b0ecfcb59.bindPopup(popup_80f69027d2d3b16b2943674c6d93955f)
+        ;
+
+        
+    
+    
+                marker_ab3efb9c9a6a54a9aa1c4d3b0ecfcb59.setIcon(icon_9a78a55ee179c4c24c85bda13b62bcd7);
+            
+    
+            var marker_5853a5c26e48fcea186b885db1687504 = L.marker(
+                [42.7304691, 13.0278728],
+                {
+}
+            ).addTo(map_a7c9926de74c41335f42b472fce98067);
+        
+    
+            var icon_da319a5c7e5151933d64035d214f2d1f = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightblue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_b16629063f82416d51160aa100f5f3ff = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_77eb85d7edfbcf060bac216090b044d7 = $(`<div id="html_77eb85d7edfbcf060bac216090b044d7" style="width: 100.0%; height: 100.0%;">     <div style="font-size:14px; line-height:1.5;">         <b>📍 Cascia, Perugia, Umbria, Italia</b><br>         CAP: 06043<br>         Clienti: <b>10</b>     </div>     </div>`)[0];
+                popup_b16629063f82416d51160aa100f5f3ff.setContent(html_77eb85d7edfbcf060bac216090b044d7);
+            
+        
+
+        marker_5853a5c26e48fcea186b885db1687504.bindPopup(popup_b16629063f82416d51160aa100f5f3ff)
+        ;
+
+        
+    
+    
+                marker_5853a5c26e48fcea186b885db1687504.setIcon(icon_da319a5c7e5151933d64035d214f2d1f);
+            
+    
+            var marker_097aaed730e13e0a7f64dc75592d35c9 = L.marker(
+                [42.5648469, 12.6388817],
+                {
+}
+            ).addTo(map_a7c9926de74c41335f42b472fce98067);
+        
+    
+            var icon_625cc12a4e1a5de56c946f5d78b12b12 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightblue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_ca254c019e94e721f0521a149c777db2 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_2fa12616c910baee485a310e8ca5db18 = $(`<div id="html_2fa12616c910baee485a310e8ca5db18" style="width: 100.0%; height: 100.0%;">     <div style="font-size:14px; line-height:1.5;">         <b>📍 Terni, Umbria, Italia</b><br>         CAP: 05100<br>         Clienti: <b>9</b>     </div>     </div>`)[0];
+                popup_ca254c019e94e721f0521a149c777db2.setContent(html_2fa12616c910baee485a310e8ca5db18);
+            
+        
+
+        marker_097aaed730e13e0a7f64dc75592d35c9.bindPopup(popup_ca254c019e94e721f0521a149c777db2)
+        ;
+
+        
+    
+    
+                marker_097aaed730e13e0a7f64dc75592d35c9.setIcon(icon_625cc12a4e1a5de56c946f5d78b12b12);
+            
+    
+            var marker_d01442f77750049354beb70c65fb34db = L.marker(
+                [42.8921352, 12.6518171],
+                {
+}
+            ).addTo(map_a7c9926de74c41335f42b472fce98067);
+        
+    
+            var icon_89621b04095840c341056e2d71bc64d9 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightblue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_27fc1a8666037d763a71e1df94cd5394 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_92d239af961fd4387d1cbb9e5b319067 = $(`<div id="html_92d239af961fd4387d1cbb9e5b319067" style="width: 100.0%; height: 100.0%;">     <div style="font-size:14px; line-height:1.5;">         <b>📍 Montefalco, Perugia, Umbria, Italia</b><br>         CAP: 06036<br>         Clienti: <b>8</b>     </div>     </div>`)[0];
+                popup_27fc1a8666037d763a71e1df94cd5394.setContent(html_92d239af961fd4387d1cbb9e5b319067);
+            
+        
+
+        marker_d01442f77750049354beb70c65fb34db.bindPopup(popup_27fc1a8666037d763a71e1df94cd5394)
+        ;
+
+        
+    
+    
+                marker_d01442f77750049354beb70c65fb34db.setIcon(icon_89621b04095840c341056e2d71bc64d9);
+            
+    
+            var marker_c87b15427d6e42844bcfd68e7cdf02f2 = L.marker(
+                [42.9558895, 12.7154635],
+                {
+}
+            ).addTo(map_a7c9926de74c41335f42b472fce98067);
+        
+    
+            var icon_ae7eb8e2843db8e353001ea102b0c9f6 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightblue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_010f092e88f63cf41fcb42857602e06d = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_1cdec8b488f1db86b8e15123e8c6ecbd = $(`<div id="html_1cdec8b488f1db86b8e15123e8c6ecbd" style="width: 100.0%; height: 100.0%;">     <div style="font-size:14px; line-height:1.5;">         <b>📍 Foligno, Perugia, Umbria, Italia</b><br>         CAP: 06034<br>         Clienti: <b>7</b>     </div>     </div>`)[0];
+                popup_010f092e88f63cf41fcb42857602e06d.setContent(html_1cdec8b488f1db86b8e15123e8c6ecbd);
+            
+        
+
+        marker_c87b15427d6e42844bcfd68e7cdf02f2.bindPopup(popup_010f092e88f63cf41fcb42857602e06d)
+        ;
+
+        
+    
+    
+                marker_c87b15427d6e42844bcfd68e7cdf02f2.setIcon(icon_ae7eb8e2843db8e353001ea102b0c9f6);
+            
+    
+            var marker_4840b5c2b4400de1aa78532dec18b6ce = L.marker(
+                [41.6885184, 12.7803243],
+                {
+}
+            ).addTo(map_a7c9926de74c41335f42b472fce98067);
+        
+    
+            var icon_f339fd1d013f724d9cc9a3bfc5ec8f04 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightblue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_dc6b50ed90fa66b6726edf0eaf258fcd = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_34012247a3a82c57f5ee26951b944d5e = $(`<div id="html_34012247a3a82c57f5ee26951b944d5e" style="width: 100.0%; height: 100.0%;">     <div style="font-size:14px; line-height:1.5;">         <b>📍 Velletri, Roma Capitale, Lazio, Italia</b><br>         CAP: 00049<br>         Clienti: <b>4</b>     </div>     </div>`)[0];
+                popup_dc6b50ed90fa66b6726edf0eaf258fcd.setContent(html_34012247a3a82c57f5ee26951b944d5e);
+            
+        
+
+        marker_4840b5c2b4400de1aa78532dec18b6ce.bindPopup(popup_dc6b50ed90fa66b6726edf0eaf258fcd)
+        ;
+
+        
+    
+    
+                marker_4840b5c2b4400de1aa78532dec18b6ce.setIcon(icon_f339fd1d013f724d9cc9a3bfc5ec8f04);
+            
+    
+            var marker_e35410959beac142f7ed432b6cc67628 = L.marker(
+                [42.6510059, 12.9515599],
+                {
+}
+            ).addTo(map_a7c9926de74c41335f42b472fce98067);
+        
+    
+            var icon_a5e5d2ff991f9f1c9f3f16015c589384 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightblue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_8bb79f8b7f8457477e9ccf1559bf6dec = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_edb3ec4b7d2581b1932b615eaeb39aff = $(`<div id="html_edb3ec4b7d2581b1932b615eaeb39aff" style="width: 100.0%; height: 100.0%;">     <div style="font-size:14px; line-height:1.5;">         <b>📍 Monteleone di Spoleto, Perugia, Umbria, Italia</b><br>         CAP: 06045<br>         Clienti: <b>4</b>     </div>     </div>`)[0];
+                popup_8bb79f8b7f8457477e9ccf1559bf6dec.setContent(html_edb3ec4b7d2581b1932b615eaeb39aff);
+            
+        
+
+        marker_e35410959beac142f7ed432b6cc67628.bindPopup(popup_8bb79f8b7f8457477e9ccf1559bf6dec)
+        ;
+
+        
+    
+    
+                marker_e35410959beac142f7ed432b6cc67628.setIcon(icon_a5e5d2ff991f9f1c9f3f16015c589384);
+            
+    
+            var marker_7825e14ee88c226b7f31027578dfc9a9 = L.marker(
+                [43.3387439, 12.5781361],
+                {
+}
+            ).addTo(map_a7c9926de74c41335f42b472fce98067);
+        
+    
+            var icon_cae4ff9df2ce5ff8e433f635870eec83 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightblue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_61ed1247faaea5db6c838432da80586e = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_bc14361c10b4893cdacb2921a612cd32 = $(`<div id="html_bc14361c10b4893cdacb2921a612cd32" style="width: 100.0%; height: 100.0%;">     <div style="font-size:14px; line-height:1.5;">         <b>📍 Gubbio, Perugia, Umbria, Italia</b><br>         CAP: 06024<br>         Clienti: <b>3</b>     </div>     </div>`)[0];
+                popup_61ed1247faaea5db6c838432da80586e.setContent(html_bc14361c10b4893cdacb2921a612cd32);
+            
+        
+
+        marker_7825e14ee88c226b7f31027578dfc9a9.bindPopup(popup_61ed1247faaea5db6c838432da80586e)
+        ;
+
+        
+    
+    
+                marker_7825e14ee88c226b7f31027578dfc9a9.setIcon(icon_cae4ff9df2ce5ff8e433f635870eec83);
+            
+    
+            var marker_83065e62ee9f28139db92727feb5528c = L.marker(
+                [42.6892548, 12.5440887],
+                {
+}
+            ).addTo(map_a7c9926de74c41335f42b472fce98067);
+        
+    
+            var icon_2011908d3e664b6034fef0264798bc7e = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightblue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_a3ad8384e113674ca24ed61765bc7b25 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_7814e5ccd5f9d16a705f4be062b7e51b = $(`<div id="html_7814e5ccd5f9d16a705f4be062b7e51b" style="width: 100.0%; height: 100.0%;">     <div style="font-size:14px; line-height:1.5;">         <b>📍 Acquasparta, Terni, Umbria, Italia</b><br>         CAP: 05021<br>         Clienti: <b>3</b>     </div>     </div>`)[0];
+                popup_a3ad8384e113674ca24ed61765bc7b25.setContent(html_7814e5ccd5f9d16a705f4be062b7e51b);
+            
+        
+
+        marker_83065e62ee9f28139db92727feb5528c.bindPopup(popup_a3ad8384e113674ca24ed61765bc7b25)
+        ;
+
+        
+    
+    
+                marker_83065e62ee9f28139db92727feb5528c.setIcon(icon_2011908d3e664b6034fef0264798bc7e);
+            
+    
+            var marker_c54a0a3277c8596acac2a78443f7bfaa = L.marker(
+                [37.5633662, 14.9073941],
+                {
+}
+            ).addTo(map_a7c9926de74c41335f42b472fce98067);
+        
+    
+            var icon_bb49b0f886e0e70c0de58fb39f6fd23a = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightblue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_7f7d0cf7d330c69523d2a563f67dc5f9 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_9336a8099d08e38fbb777b488223f4d0 = $(`<div id="html_9336a8099d08e38fbb777b488223f4d0" style="width: 100.0%; height: 100.0%;">     <div style="font-size:14px; line-height:1.5;">         <b>📍 Paternò, Catania, Sicilia, Italia</b><br>         CAP: 95047<br>         Clienti: <b>2</b>     </div>     </div>`)[0];
+                popup_7f7d0cf7d330c69523d2a563f67dc5f9.setContent(html_9336a8099d08e38fbb777b488223f4d0);
+            
+        
+
+        marker_c54a0a3277c8596acac2a78443f7bfaa.bindPopup(popup_7f7d0cf7d330c69523d2a563f67dc5f9)
+        ;
+
+        
+    
+    
+                marker_c54a0a3277c8596acac2a78443f7bfaa.setIcon(icon_bb49b0f886e0e70c0de58fb39f6fd23a);
+            
+    
+            var marker_6ef916bfc20ced505bdba76d886e29fa = L.marker(
+                [45.5798739, 9.2760051],
+                {
+}
+            ).addTo(map_a7c9926de74c41335f42b472fce98067);
+        
+    
+            var icon_9ada6f3ca948a05ac184ce944c8b609c = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightblue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_31a16bc86f4e5ef2d8958c42ec1f8d87 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_0ce95c32f753138a24611fecbb102503 = $(`<div id="html_0ce95c32f753138a24611fecbb102503" style="width: 100.0%; height: 100.0%;">     <div style="font-size:14px; line-height:1.5;">         <b>📍 Monza, Monza e della Brianza, Lombardia, Italia</b><br>         CAP: 20900<br>         Clienti: <b>2</b>     </div>     </div>`)[0];
+                popup_31a16bc86f4e5ef2d8958c42ec1f8d87.setContent(html_0ce95c32f753138a24611fecbb102503);
+            
+        
+
+        marker_6ef916bfc20ced505bdba76d886e29fa.bindPopup(popup_31a16bc86f4e5ef2d8958c42ec1f8d87)
+        ;
+
+        
+    
+    
+                marker_6ef916bfc20ced505bdba76d886e29fa.setIcon(icon_9ada6f3ca948a05ac184ce944c8b609c);
+            
+    
+            var marker_648f64f5edc6c5f1a66194b81b251338 = L.marker(
+                [41.9157521, 12.5217581],
+                {
+}
+            ).addTo(map_a7c9926de74c41335f42b472fce98067);
+        
+    
+            var icon_0e9c0f994455be148e13f24f24d1bd79 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightblue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_d727b49b1a8c89788e3a0f6fc121dd6f = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_743bb350426c9af1cf0f8d81a86be7f8 = $(`<div id="html_743bb350426c9af1cf0f8d81a86be7f8" style="width: 100.0%; height: 100.0%;">     <div style="font-size:14px; line-height:1.5;">         <b>📍 Municipio Roma II, Roma, Roma Capitale, Lazio, Italia</b><br>         CAP: 00162<br>         Clienti: <b>2</b>     </div>     </div>`)[0];
+                popup_d727b49b1a8c89788e3a0f6fc121dd6f.setContent(html_743bb350426c9af1cf0f8d81a86be7f8);
+            
+        
+
+        marker_648f64f5edc6c5f1a66194b81b251338.bindPopup(popup_d727b49b1a8c89788e3a0f6fc121dd6f)
+        ;
+
+        
+    
+    
+                marker_648f64f5edc6c5f1a66194b81b251338.setIcon(icon_0e9c0f994455be148e13f24f24d1bd79);
+            
+    
+            var marker_371dee22ae1c6d32ef5bd7c0ac460f3a = L.marker(
+                [41.6416917, 12.4639871],
+                {
+}
+            ).addTo(map_a7c9926de74c41335f42b472fce98067);
+        
+    
+            var icon_2eab0aab41de83234781d65b20221605 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightblue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_af716d3c7a1ac2706cc42cdf5d71a153 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_d38927f3f7f3051a1c620a20a18b8eef = $(`<div id="html_d38927f3f7f3051a1c620a20a18b8eef" style="width: 100.0%; height: 100.0%;">     <div style="font-size:14px; line-height:1.5;">         <b>📍 Pomezia, Roma Capitale, Lazio, Italia</b><br>         CAP: 00071<br>         Clienti: <b>2</b>     </div>     </div>`)[0];
+                popup_af716d3c7a1ac2706cc42cdf5d71a153.setContent(html_d38927f3f7f3051a1c620a20a18b8eef);
+            
+        
+
+        marker_371dee22ae1c6d32ef5bd7c0ac460f3a.bindPopup(popup_af716d3c7a1ac2706cc42cdf5d71a153)
+        ;
+
+        
+    
+    
+                marker_371dee22ae1c6d32ef5bd7c0ac460f3a.setIcon(icon_2eab0aab41de83234781d65b20221605);
+            
+    
+            var marker_2af6be778cd02131755d7898e2f2b2ed = L.marker(
+                [40.8308397, 17.3691977],
+                {
+}
+            ).addTo(map_a7c9926de74c41335f42b472fce98067);
+        
+    
+            var icon_6ed712789a6b037c38d901d6025ab089 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightblue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_cb0e9aa50e17e1fa638fdb2cc4a8f6ae = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_339bd5d4d8f1081b017f92bc4296b407 = $(`<div id="html_339bd5d4d8f1081b017f92bc4296b407" style="width: 100.0%; height: 100.0%;">     <div style="font-size:14px; line-height:1.5;">         <b>📍 Fasano, Brindisi, Puglia, Italia</b><br>         CAP: 72015<br>         Clienti: <b>2</b>     </div>     </div>`)[0];
+                popup_cb0e9aa50e17e1fa638fdb2cc4a8f6ae.setContent(html_339bd5d4d8f1081b017f92bc4296b407);
+            
+        
+
+        marker_2af6be778cd02131755d7898e2f2b2ed.bindPopup(popup_cb0e9aa50e17e1fa638fdb2cc4a8f6ae)
+        ;
+
+        
+    
+    
+                marker_2af6be778cd02131755d7898e2f2b2ed.setIcon(icon_6ed712789a6b037c38d901d6025ab089);
+            
+    
+            var marker_bff748f00464f85d00f31c83586b3219 = L.marker(
+                [43.8872913, 8.0284858],
+                {
+}
+            ).addTo(map_a7c9926de74c41335f42b472fce98067);
+        
+    
+            var icon_5415acadfe75fc29636db438b31965d0 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightblue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_6b56b806419b1497ad4061b95ead09e5 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_75933180e5f673bf1d7ce012ee349d6b = $(`<div id="html_75933180e5f673bf1d7ce012ee349d6b" style="width: 100.0%; height: 100.0%;">     <div style="font-size:14px; line-height:1.5;">         <b>📍 Imperia, Provincia di Imperia, Liguria, Italia</b><br>         CAP: 18100<br>         Clienti: <b>2</b>     </div>     </div>`)[0];
+                popup_6b56b806419b1497ad4061b95ead09e5.setContent(html_75933180e5f673bf1d7ce012ee349d6b);
+            
+        
+
+        marker_bff748f00464f85d00f31c83586b3219.bindPopup(popup_6b56b806419b1497ad4061b95ead09e5)
+        ;
+
+        
+    
+    
+                marker_bff748f00464f85d00f31c83586b3219.setIcon(icon_5415acadfe75fc29636db438b31965d0);
+            
+    
+            var marker_cdf1ea01a98e126150453db9c31e9fca = L.marker(
+                [42.936345, 12.0142852],
+                {
+}
+            ).addTo(map_a7c9926de74c41335f42b472fce98067);
+        
+    
+            var icon_351fd994c192eee0437d7cb6932b4b38 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightblue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_453b697dc72de9c1216a3049f329452c = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_40b9c34307111f0a321bac22046259de = $(`<div id="html_40b9c34307111f0a321bac22046259de" style="width: 100.0%; height: 100.0%;">     <div style="font-size:14px; line-height:1.5;">         <b>📍 Città della Pieve, Perugia, Umbria, Italia</b><br>         CAP: 06026<br>         Clienti: <b>2</b>     </div>     </div>`)[0];
+                popup_453b697dc72de9c1216a3049f329452c.setContent(html_40b9c34307111f0a321bac22046259de);
+            
+        
+
+        marker_cdf1ea01a98e126150453db9c31e9fca.bindPopup(popup_453b697dc72de9c1216a3049f329452c)
+        ;
+
+        
+    
+    
+                marker_cdf1ea01a98e126150453db9c31e9fca.setIcon(icon_351fd994c192eee0437d7cb6932b4b38);
+            
+    
+            var marker_88122362e32972074e1a391cd555a656 = L.marker(
+                [43.067474, 12.5429411],
+                {
+}
+            ).addTo(map_a7c9926de74c41335f42b472fce98067);
+        
+    
+            var icon_81f2dffcedbe3eb3018ccdf4472fa5e7 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightblue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_c32e1db4cb3512ef0bf75fe3bcd6ab6f = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_d32b9a67794366637b5db04c34473210 = $(`<div id="html_d32b9a67794366637b5db04c34473210" style="width: 100.0%; height: 100.0%;">     <div style="font-size:14px; line-height:1.5;">         <b>📍 Bastia Umbra, Perugia, Umbria, Italia</b><br>         CAP: 06083<br>         Clienti: <b>2</b>     </div>     </div>`)[0];
+                popup_c32e1db4cb3512ef0bf75fe3bcd6ab6f.setContent(html_d32b9a67794366637b5db04c34473210);
+            
+        
+
+        marker_88122362e32972074e1a391cd555a656.bindPopup(popup_c32e1db4cb3512ef0bf75fe3bcd6ab6f)
+        ;
+
+        
+    
+    
+                marker_88122362e32972074e1a391cd555a656.setIcon(icon_81f2dffcedbe3eb3018ccdf4472fa5e7);
+            
+    
+            var marker_b5e1760d901d3c376339e720eb41ed42 = L.marker(
+                [40.8489995, 14.4846037],
+                {
+}
+            ).addTo(map_a7c9926de74c41335f42b472fce98067);
+        
+    
+            var icon_05e4b2940f6d50416cf8dff02bc86d68 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightblue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_00cdee77de6979d4cb1fa8dc71b411ec = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_2b8766ba8efb3e12996564519305974f = $(`<div id="html_2b8766ba8efb3e12996564519305974f" style="width: 100.0%; height: 100.0%;">     <div style="font-size:14px; line-height:1.5;">         <b>📍 Ottaviano, Napoli, Campania, Italia</b><br>         CAP: 80044<br>         Clienti: <b>2</b>     </div>     </div>`)[0];
+                popup_00cdee77de6979d4cb1fa8dc71b411ec.setContent(html_2b8766ba8efb3e12996564519305974f);
+            
+        
+
+        marker_b5e1760d901d3c376339e720eb41ed42.bindPopup(popup_00cdee77de6979d4cb1fa8dc71b411ec)
+        ;
+
+        
+    
+    
+                marker_b5e1760d901d3c376339e720eb41ed42.setIcon(icon_05e4b2940f6d50416cf8dff02bc86d68);
+            
+    
+            var marker_54fa2c5fb37e6af36bf0cff7e6040854 = L.marker(
+                [40.9382033, 14.5265071],
+                {
+}
+            ).addTo(map_a7c9926de74c41335f42b472fce98067);
+        
+    
+            var icon_bf546a0a31f717fb9490353dd06b45db = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightblue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_282fdcc70c7942133457af9243059013 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_d756c7af278a1c68f4280900bc9a3031 = $(`<div id="html_d756c7af278a1c68f4280900bc9a3031" style="width: 100.0%; height: 100.0%;">     <div style="font-size:14px; line-height:1.5;">         <b>📍 Cimitile, Napoli, Campania, Italia</b><br>         CAP: 80035<br>         Clienti: <b>2</b>     </div>     </div>`)[0];
+                popup_282fdcc70c7942133457af9243059013.setContent(html_d756c7af278a1c68f4280900bc9a3031);
+            
+        
+
+        marker_54fa2c5fb37e6af36bf0cff7e6040854.bindPopup(popup_282fdcc70c7942133457af9243059013)
+        ;
+
+        
+    
+    
+                marker_54fa2c5fb37e6af36bf0cff7e6040854.setIcon(icon_bf546a0a31f717fb9490353dd06b45db);
+            
+    
+            var marker_1603ceb79f418c80bae2b5f0f2b8349c = L.marker(
+                [43.3281993, 13.5027201],
+                {
+}
+            ).addTo(map_a7c9926de74c41335f42b472fce98067);
+        
+    
+            var icon_b1c1d21af3d995c41c2e33df88d8105d = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightblue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_d16d0920aa229c63e4e36f30727632fb = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_1923f581cdcc7c5001c03fca6242982c = $(`<div id="html_1923f581cdcc7c5001c03fca6242982c" style="width: 100.0%; height: 100.0%;">     <div style="font-size:14px; line-height:1.5;">         <b>📍 Macerata, Marche, Italia</b><br>         CAP: 62010<br>         Clienti: <b>2</b>     </div>     </div>`)[0];
+                popup_d16d0920aa229c63e4e36f30727632fb.setContent(html_1923f581cdcc7c5001c03fca6242982c);
+            
+        
+
+        marker_1603ceb79f418c80bae2b5f0f2b8349c.bindPopup(popup_d16d0920aa229c63e4e36f30727632fb)
+        ;
+
+        
+    
+    
+                marker_1603ceb79f418c80bae2b5f0f2b8349c.setIcon(icon_b1c1d21af3d995c41c2e33df88d8105d);
+            
+    
+            var marker_2dd69731937c6847a46b20d1f08956d0 = L.marker(
+                [41.9204265, 12.446565],
+                {
+}
+            ).addTo(map_a7c9926de74c41335f42b472fce98067);
+        
+    
+            var icon_40fc44adacd2995cb87ef5af4e8d4a5d = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightblue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_64b4398f42a53cdc6d260733b1dd7fd5 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_9b646e8e2273f85478bbe7e9dae805c3 = $(`<div id="html_9b646e8e2273f85478bbe7e9dae805c3" style="width: 100.0%; height: 100.0%;">     <div style="font-size:14px; line-height:1.5;">         <b>📍 Trionfale, Roma, Roma Capitale, Lazio, Italia</b><br>         CAP: 00100<br>         Clienti: <b>2</b>     </div>     </div>`)[0];
+                popup_64b4398f42a53cdc6d260733b1dd7fd5.setContent(html_9b646e8e2273f85478bbe7e9dae805c3);
+            
+        
+
+        marker_2dd69731937c6847a46b20d1f08956d0.bindPopup(popup_64b4398f42a53cdc6d260733b1dd7fd5)
+        ;
+
+        
+    
+    
+                marker_2dd69731937c6847a46b20d1f08956d0.setIcon(icon_40fc44adacd2995cb87ef5af4e8d4a5d);
+            
+    
+            var marker_09b741d5813ea7765aeb4063d212c9e2 = L.marker(
+                [41.9139108, 12.5004571],
+                {
+}
+            ).addTo(map_a7c9926de74c41335f42b472fce98067);
+        
+    
+            var icon_4c469fb0314ca9b0d8f05555cf38c456 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightblue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_b024954454273163c36d23be48ad1fec = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_b379a99c209bc21232cc96f6ee72a433 = $(`<div id="html_b379a99c209bc21232cc96f6ee72a433" style="width: 100.0%; height: 100.0%;">     <div style="font-size:14px; line-height:1.5;">         <b>📍 Municipio Roma II, Roma, Roma Capitale, Lazio, Italia</b><br>         CAP: 00198<br>         Clienti: <b>1</b>     </div>     </div>`)[0];
+                popup_b024954454273163c36d23be48ad1fec.setContent(html_b379a99c209bc21232cc96f6ee72a433);
+            
+        
+
+        marker_09b741d5813ea7765aeb4063d212c9e2.bindPopup(popup_b024954454273163c36d23be48ad1fec)
+        ;
+
+        
+    
+    
+                marker_09b741d5813ea7765aeb4063d212c9e2.setIcon(icon_4c469fb0314ca9b0d8f05555cf38c456);
+            
+    
+            var marker_e479e413a267c63f96a1b0b5dfa8238b = L.marker(
+                [41.8406163, 12.4201616],
+                {
+}
+            ).addTo(map_a7c9926de74c41335f42b472fce98067);
+        
+    
+            var icon_5119181d57caa984b8959510b325e849 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightblue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_d16f5bb00a0863c80a588fd55655c417 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_5d782420aca58b8d06edd0f1a6de5d0b = $(`<div id="html_5d782420aca58b8d06edd0f1a6de5d0b" style="width: 100.0%; height: 100.0%;">     <div style="font-size:14px; line-height:1.5;">         <b>📍 Municipio Roma XI, Roma, Roma Capitale, Lazio, Italia</b><br>         CAP: 00148<br>         Clienti: <b>1</b>     </div>     </div>`)[0];
+                popup_d16f5bb00a0863c80a588fd55655c417.setContent(html_5d782420aca58b8d06edd0f1a6de5d0b);
+            
+        
+
+        marker_e479e413a267c63f96a1b0b5dfa8238b.bindPopup(popup_d16f5bb00a0863c80a588fd55655c417)
+        ;
+
+        
+    
+    
+                marker_e479e413a267c63f96a1b0b5dfa8238b.setIcon(icon_5119181d57caa984b8959510b325e849);
+            
+    
+            var marker_77c3e53586ed9a14bad3b728f351a025 = L.marker(
+                [43.1284758, 12.2020477],
+                {
+}
+            ).addTo(map_a7c9926de74c41335f42b472fce98067);
+        
+    
+            var icon_b8cce9d48cf027d411c3c530dfcd328c = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightblue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_0ad051f22e139c75b093d69f93a217f5 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_ed910e4a1e6c9822d4509ab0c52033cb = $(`<div id="html_ed910e4a1e6c9822d4509ab0c52033cb" style="width: 100.0%; height: 100.0%;">     <div style="font-size:14px; line-height:1.5;">         <b>📍 Magione, Perugia, Umbria, Italia</b><br>         CAP: 06063<br>         Clienti: <b>1</b>     </div>     </div>`)[0];
+                popup_0ad051f22e139c75b093d69f93a217f5.setContent(html_ed910e4a1e6c9822d4509ab0c52033cb);
+            
+        
+
+        marker_77c3e53586ed9a14bad3b728f351a025.bindPopup(popup_0ad051f22e139c75b093d69f93a217f5)
+        ;
+
+        
+    
+    
+                marker_77c3e53586ed9a14bad3b728f351a025.setIcon(icon_b8cce9d48cf027d411c3c530dfcd328c);
+            
+    
+            var marker_6d102016c82557188af1c6b41377b65c = L.marker(
+                [45.0208072, 7.6330338],
+                {
+}
+            ).addTo(map_a7c9926de74c41335f42b472fce98067);
+        
+    
+            var icon_785e7c6dd300457fa8c9ba84e959f2c9 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightblue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_d88ca6765baba6478cd595b4672e4da6 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_a113138adfd7672f2f62d5bbab216679 = $(`<div id="html_a113138adfd7672f2f62d5bbab216679" style="width: 100.0%; height: 100.0%;">     <div style="font-size:14px; line-height:1.5;">         <b>📍 Mirafiori Sud, Torino, Piemonte, Italia</b><br>         CAP: 10135<br>         Clienti: <b>1</b>     </div>     </div>`)[0];
+                popup_d88ca6765baba6478cd595b4672e4da6.setContent(html_a113138adfd7672f2f62d5bbab216679);
+            
+        
+
+        marker_6d102016c82557188af1c6b41377b65c.bindPopup(popup_d88ca6765baba6478cd595b4672e4da6)
+        ;
+
+        
+    
+    
+                marker_6d102016c82557188af1c6b41377b65c.setIcon(icon_785e7c6dd300457fa8c9ba84e959f2c9);
+            
+    
+            var marker_ac6345274898d841c812e05e9fbc190f = L.marker(
+                [40.7021645, 14.4847665],
+                {
+}
+            ).addTo(map_a7c9926de74c41335f42b472fce98067);
+        
+    
+            var icon_c2932a214c156f1bee6b09896610b789 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightblue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_2ca82f6b21cba9548b6569a66a9ea428 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_a419d25b1d7aea2130af2ac755beee2f = $(`<div id="html_a419d25b1d7aea2130af2ac755beee2f" style="width: 100.0%; height: 100.0%;">     <div style="font-size:14px; line-height:1.5;">         <b>📍 Castellammare di Stabia, Napoli, Campania, Italia</b><br>         CAP: 80053<br>         Clienti: <b>1</b>     </div>     </div>`)[0];
+                popup_2ca82f6b21cba9548b6569a66a9ea428.setContent(html_a419d25b1d7aea2130af2ac755beee2f);
+            
+        
+
+        marker_ac6345274898d841c812e05e9fbc190f.bindPopup(popup_2ca82f6b21cba9548b6569a66a9ea428)
+        ;
+
+        
+    
+    
+                marker_ac6345274898d841c812e05e9fbc190f.setIcon(icon_c2932a214c156f1bee6b09896610b789);
+            
+    
+            var marker_da0cb67e6ecb486d017b4b3abe640fc1 = L.marker(
+                [40.8153056, 14.3681815],
+                {
+}
+            ).addTo(map_a7c9926de74c41335f42b472fce98067);
+        
+    
+            var icon_f67d81fedfae815adcc8f80777658728 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightblue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_5289dbf7fb3f19d43dd90523e5ee9db1 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_70758868dd838df5469c2036c1069f0d = $(`<div id="html_70758868dd838df5469c2036c1069f0d" style="width: 100.0%; height: 100.0%;">     <div style="font-size:14px; line-height:1.5;">         <b>📍 Ercolano, Napoli, Campania, Italia</b><br>         CAP: 80056<br>         Clienti: <b>1</b>     </div>     </div>`)[0];
+                popup_5289dbf7fb3f19d43dd90523e5ee9db1.setContent(html_70758868dd838df5469c2036c1069f0d);
+            
+        
+
+        marker_da0cb67e6ecb486d017b4b3abe640fc1.bindPopup(popup_5289dbf7fb3f19d43dd90523e5ee9db1)
+        ;
+
+        
+    
+    
+                marker_da0cb67e6ecb486d017b4b3abe640fc1.setIcon(icon_f67d81fedfae815adcc8f80777658728);
+            
+    
+            var marker_e1a832d859cf506a9099d5da60b7bc8c = L.marker(
+                [42.5675818, 12.9876618],
+                {
+}
+            ).addTo(map_a7c9926de74c41335f42b472fce98067);
+        
+    
+            var icon_e20c06f9a85b651d0da8984ff31bfff3 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightblue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_a21453359f2173b07fafabb56e79fc06 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_da826be8f64dd5b20a1e9fb7c7795f5f = $(`<div id="html_da826be8f64dd5b20a1e9fb7c7795f5f" style="width: 100.0%; height: 100.0%;">     <div style="font-size:14px; line-height:1.5;">         <b>📍 Leonessa, Rieti, Lazio, Italia</b><br>         CAP: 02016<br>         Clienti: <b>1</b>     </div>     </div>`)[0];
+                popup_a21453359f2173b07fafabb56e79fc06.setContent(html_da826be8f64dd5b20a1e9fb7c7795f5f);
+            
+        
+
+        marker_e1a832d859cf506a9099d5da60b7bc8c.bindPopup(popup_a21453359f2173b07fafabb56e79fc06)
+        ;
+
+        
+    
+    
+                marker_e1a832d859cf506a9099d5da60b7bc8c.setIcon(icon_e20c06f9a85b651d0da8984ff31bfff3);
+            
+    
+            var marker_b5c2b5a39c00b6dfc54171766fc8892f = L.marker(
+                [42.9111755, 12.345094],
+                {
+}
+            ).addTo(map_a7c9926de74c41335f42b472fce98067);
+        
+    
+            var icon_abf5a421eec3e723c729a3f50cc96bcd = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightblue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_e13555eccbe1dad498ca70dbc9cde7d7 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_4f593acc77417b4e9de227ed59e2bc2f = $(`<div id="html_4f593acc77417b4e9de227ed59e2bc2f" style="width: 100.0%; height: 100.0%;">     <div style="font-size:14px; line-height:1.5;">         <b>📍 Marsciano, Perugia, Umbria, Italia</b><br>         CAP: 06055<br>         Clienti: <b>1</b>     </div>     </div>`)[0];
+                popup_e13555eccbe1dad498ca70dbc9cde7d7.setContent(html_4f593acc77417b4e9de227ed59e2bc2f);
+            
+        
+
+        marker_b5c2b5a39c00b6dfc54171766fc8892f.bindPopup(popup_e13555eccbe1dad498ca70dbc9cde7d7)
+        ;
+
+        
+    
+    
+                marker_b5c2b5a39c00b6dfc54171766fc8892f.setIcon(icon_abf5a421eec3e723c729a3f50cc96bcd);
+            
+    
+            var marker_3a5da89d19f6dcdad9050a78aa976046 = L.marker(
+                [39.9538822, 18.2304578],
+                {
+}
+            ).addTo(map_a7c9926de74c41335f42b472fce98067);
+        
+    
+            var icon_42ef8fcba08a4f7073ff9302b3c8ed26 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightblue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_7f20a742c385098d92e520d02003859c = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_0b6dbbdef1563a447449686d6359b669 = $(`<div id="html_0b6dbbdef1563a447449686d6359b669" style="width: 100.0%; height: 100.0%;">     <div style="font-size:14px; line-height:1.5;">         <b>📍 Taurisano, Lecce, Puglia, Italia</b><br>         CAP: 73040<br>         Clienti: <b>1</b>     </div>     </div>`)[0];
+                popup_7f20a742c385098d92e520d02003859c.setContent(html_0b6dbbdef1563a447449686d6359b669);
+            
+        
+
+        marker_3a5da89d19f6dcdad9050a78aa976046.bindPopup(popup_7f20a742c385098d92e520d02003859c)
+        ;
+
+        
+    
+    
+                marker_3a5da89d19f6dcdad9050a78aa976046.setIcon(icon_42ef8fcba08a4f7073ff9302b3c8ed26);
+            
+    
+            var marker_643264df8bb792e36ffc006465b6e10b = L.marker(
+                [42.608884, 12.5494007],
+                {
+}
+            ).addTo(map_a7c9926de74c41335f42b472fce98067);
+        
+    
+            var icon_4ee99359f08d8fc95ae4b28ed18c5d1f = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightblue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_2045fec326c6f20cf489259f79e77b55 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_56dfb6559f40666e1b3cb309283e5a2c = $(`<div id="html_56dfb6559f40666e1b3cb309283e5a2c" style="width: 100.0%; height: 100.0%;">     <div style="font-size:14px; line-height:1.5;">         <b>📍 San Gemini, Terni, Umbria, Italia</b><br>         CAP: 05029<br>         Clienti: <b>1</b>     </div>     </div>`)[0];
+                popup_2045fec326c6f20cf489259f79e77b55.setContent(html_56dfb6559f40666e1b3cb309283e5a2c);
+            
+        
+
+        marker_643264df8bb792e36ffc006465b6e10b.bindPopup(popup_2045fec326c6f20cf489259f79e77b55)
+        ;
+
+        
+    
+    
+                marker_643264df8bb792e36ffc006465b6e10b.setIcon(icon_4ee99359f08d8fc95ae4b28ed18c5d1f);
+            
+    
+            var marker_8343d2f90407ae8ef28b1b4ce2510f92 = L.marker(
+                [40.7250671, 14.9359054],
+                {
+}
+            ).addTo(map_a7c9926de74c41335f42b472fce98067);
+        
+    
+            var icon_eae092e47202266354c324de79df2292 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightblue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_3d011e1ebfd22cfb46c6a00fecd78dee = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_9bd6614a87c480ebc0f5d3b6c28f9368 = $(`<div id="html_9bd6614a87c480ebc0f5d3b6c28f9368" style="width: 100.0%; height: 100.0%;">     <div style="font-size:14px; line-height:1.5;">         <b>📍 Giffoni Valle Piana, Salerno, Campania, Italia</b><br>         CAP: 84095<br>         Clienti: <b>1</b>     </div>     </div>`)[0];
+                popup_3d011e1ebfd22cfb46c6a00fecd78dee.setContent(html_9bd6614a87c480ebc0f5d3b6c28f9368);
+            
+        
+
+        marker_8343d2f90407ae8ef28b1b4ce2510f92.bindPopup(popup_3d011e1ebfd22cfb46c6a00fecd78dee)
+        ;
+
+        
+    
+    
+                marker_8343d2f90407ae8ef28b1b4ce2510f92.setIcon(icon_eae092e47202266354c324de79df2292);
+            
+    
+            var marker_bf1cf050680fb549df0e736fd4d073be = L.marker(
+                [42.9964549, 12.6681518],
+                {
+}
+            ).addTo(map_a7c9926de74c41335f42b472fce98067);
+        
+    
+            var icon_a0b7c49f149d5d95e2a76e87432145f4 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightblue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_0fad94568c3479490b6e942f1b8adbe5 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_10a7ec762a260fcd63771ad9ca21ce85 = $(`<div id="html_10a7ec762a260fcd63771ad9ca21ce85" style="width: 100.0%; height: 100.0%;">     <div style="font-size:14px; line-height:1.5;">         <b>📍 Spello, Perugia, Umbria, Italia</b><br>         CAP: 06038<br>         Clienti: <b>1</b>     </div>     </div>`)[0];
+                popup_0fad94568c3479490b6e942f1b8adbe5.setContent(html_10a7ec762a260fcd63771ad9ca21ce85);
+            
+        
+
+        marker_bf1cf050680fb549df0e736fd4d073be.bindPopup(popup_0fad94568c3479490b6e942f1b8adbe5)
+        ;
+
+        
+    
+    
+                marker_bf1cf050680fb549df0e736fd4d073be.setIcon(icon_a0b7c49f149d5d95e2a76e87432145f4);
+            
+    
+            var marker_a866b7f3dc6d244a5684457a5de71464 = L.marker(
+                [43.8479895, 10.5044781],
+                {
+}
+            ).addTo(map_a7c9926de74c41335f42b472fce98067);
+        
+    
+            var icon_2f06e8b7a46d709b15b06f77e2095cd6 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightblue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_805d2a6d4ce0eddf3dd27283744f5839 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_b6cef25305ba11f34aa97e791eb56868 = $(`<div id="html_b6cef25305ba11f34aa97e791eb56868" style="width: 100.0%; height: 100.0%;">     <div style="font-size:14px; line-height:1.5;">         <b>📍 Lucca, Toscana, Italia</b><br>         CAP: 55100<br>         Clienti: <b>1</b>     </div>     </div>`)[0];
+                popup_805d2a6d4ce0eddf3dd27283744f5839.setContent(html_b6cef25305ba11f34aa97e791eb56868);
+            
+        
+
+        marker_a866b7f3dc6d244a5684457a5de71464.bindPopup(popup_805d2a6d4ce0eddf3dd27283744f5839)
+        ;
+
+        
+    
+    
+                marker_a866b7f3dc6d244a5684457a5de71464.setIcon(icon_2f06e8b7a46d709b15b06f77e2095cd6);
+            
+    
+            var marker_710ac64ff9039ced959b5292c1eb9c88 = L.marker(
+                [42.0846086, 12.2747561],
+                {
+}
+            ).addTo(map_a7c9926de74c41335f42b472fce98067);
+        
+    
+            var icon_b2da4f785c6c551338719a97be2ccd5d = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightblue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_c284998877f60194b6a5cf8e9160aeab = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_e06d667351e0663642de66bded3e7a20 = $(`<div id="html_e06d667351e0663642de66bded3e7a20" style="width: 100.0%; height: 100.0%;">     <div style="font-size:14px; line-height:1.5;">         <b>📍 Anguillara Sabazia, Roma Capitale, Lazio, Italia</b><br>         CAP: 00061<br>         Clienti: <b>1</b>     </div>     </div>`)[0];
+                popup_c284998877f60194b6a5cf8e9160aeab.setContent(html_e06d667351e0663642de66bded3e7a20);
+            
+        
+
+        marker_710ac64ff9039ced959b5292c1eb9c88.bindPopup(popup_c284998877f60194b6a5cf8e9160aeab)
+        ;
+
+        
+    
+    
+                marker_710ac64ff9039ced959b5292c1eb9c88.setIcon(icon_b2da4f785c6c551338719a97be2ccd5d);
+            
+    
+            var marker_0e3bfc5a84c3296f6befe1ab75d166ee = L.marker(
+                [37.7952826, 12.459051],
+                {
+}
+            ).addTo(map_a7c9926de74c41335f42b472fce98067);
+        
+    
+            var icon_e6a9ba4d5f99afa2ecc0cd8dc103c481 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightblue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_b81a5d06b614d1585cef7927811587a7 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_3295f5de2725a7513d1bd4e683d7ee02 = $(`<div id="html_3295f5de2725a7513d1bd4e683d7ee02" style="width: 100.0%; height: 100.0%;">     <div style="font-size:14px; line-height:1.5;">         <b>📍 Marsala, Trapani, Sicilia, Italia</b><br>         CAP: 91025<br>         Clienti: <b>1</b>     </div>     </div>`)[0];
+                popup_b81a5d06b614d1585cef7927811587a7.setContent(html_3295f5de2725a7513d1bd4e683d7ee02);
+            
+        
+
+        marker_0e3bfc5a84c3296f6befe1ab75d166ee.bindPopup(popup_b81a5d06b614d1585cef7927811587a7)
+        ;
+
+        
+    
+    
+                marker_0e3bfc5a84c3296f6befe1ab75d166ee.setIcon(icon_e6a9ba4d5f99afa2ecc0cd8dc103c481);
+            
+    
+            var marker_40116578176b7595a60d0a7991960fb9 = L.marker(
+                [39.2572476, 9.140544],
+                {
+}
+            ).addTo(map_a7c9926de74c41335f42b472fce98067);
+        
+    
+            var icon_901b6a1bf949472b952e2f64151fe46a = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightblue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_5d871c69f1ebcaf0245ff0eb6531ee94 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_32fd63ba06121affaf7bfa198cef6b8d = $(`<div id="html_32fd63ba06121affaf7bfa198cef6b8d" style="width: 100.0%; height: 100.0%;">     <div style="font-size:14px; line-height:1.5;">         <b>📍 Paùli/Monserrato, Casteddu/Cagliari, Sardigna/Sardegna, Italia</b><br>         CAP: 09042<br>         Clienti: <b>1</b>     </div>     </div>`)[0];
+                popup_5d871c69f1ebcaf0245ff0eb6531ee94.setContent(html_32fd63ba06121affaf7bfa198cef6b8d);
+            
+        
+
+        marker_40116578176b7595a60d0a7991960fb9.bindPopup(popup_5d871c69f1ebcaf0245ff0eb6531ee94)
+        ;
+
+        
+    
+    
+                marker_40116578176b7595a60d0a7991960fb9.setIcon(icon_901b6a1bf949472b952e2f64151fe46a);
+            
+    
+            var marker_552da01c87f76e1f59b921bec14f3567 = L.marker(
+                [46.2165329, 10.1669574],
+                {
+}
+            ).addTo(map_a7c9926de74c41335f42b472fce98067);
+        
+    
+            var icon_360ca2da6a00884f7116478af6a2d6b0 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightblue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_bb8998287eea601f1943d0e32a1040b8 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_64aafedf28472e2ef39269c139b7dacd = $(`<div id="html_64aafedf28472e2ef39269c139b7dacd" style="width: 100.0%; height: 100.0%;">     <div style="font-size:14px; line-height:1.5;">         <b>📍 Tirano, Comunità montana della Valtellina di Tirano, Sondrio, Lombardia, Italia</b><br>         CAP: 23037<br>         Clienti: <b>1</b>     </div>     </div>`)[0];
+                popup_bb8998287eea601f1943d0e32a1040b8.setContent(html_64aafedf28472e2ef39269c139b7dacd);
+            
+        
+
+        marker_552da01c87f76e1f59b921bec14f3567.bindPopup(popup_bb8998287eea601f1943d0e32a1040b8)
+        ;
+
+        
+    
+    
+                marker_552da01c87f76e1f59b921bec14f3567.setIcon(icon_360ca2da6a00884f7116478af6a2d6b0);
+            
+    
+            var marker_848894ac15e738cd5dcd1915cdfbfc19 = L.marker(
+                [42.8941729, 12.5404781],
+                {
+}
+            ).addTo(map_a7c9926de74c41335f42b472fce98067);
+        
+    
+            var icon_96c9b30285eb41f3b98892cb4f7160a0 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightblue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_dead97dc52cfe1c60b6535174929224b = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_c3bd524d2c328facfa0bd9962b633aea = $(`<div id="html_c3bd524d2c328facfa0bd9962b633aea" style="width: 100.0%; height: 100.0%;">     <div style="font-size:14px; line-height:1.5;">         <b>📍 Gualdo Cattaneo, Perugia, Umbria, Italia</b><br>         CAP: 06035<br>         Clienti: <b>1</b>     </div>     </div>`)[0];
+                popup_dead97dc52cfe1c60b6535174929224b.setContent(html_c3bd524d2c328facfa0bd9962b633aea);
+            
+        
+
+        marker_848894ac15e738cd5dcd1915cdfbfc19.bindPopup(popup_dead97dc52cfe1c60b6535174929224b)
+        ;
+
+        
+    
+    
+                marker_848894ac15e738cd5dcd1915cdfbfc19.setIcon(icon_96c9b30285eb41f3b98892cb4f7160a0);
+            
+    
+            var marker_c93d1abeb7a90ac1d97583ed2a7f8a0c = L.marker(
+                [45.4604308, 9.1962405],
+                {
+}
+            ).addTo(map_a7c9926de74c41335f42b472fce98067);
+        
+    
+            var icon_2d94448b1ab2b0c7b2fa2a5af12676d3 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightblue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_7e57fe9fa6464f81e04fbad8a7ce50bf = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_72b843a8e905c23f752f22efa3809b73 = $(`<div id="html_72b843a8e905c23f752f22efa3809b73" style="width: 100.0%; height: 100.0%;">     <div style="font-size:14px; line-height:1.5;">         <b>📍 Municipio 1, Milano, Lombardia, Italia</b><br>         CAP: 20122<br>         Clienti: <b>1</b>     </div>     </div>`)[0];
+                popup_7e57fe9fa6464f81e04fbad8a7ce50bf.setContent(html_72b843a8e905c23f752f22efa3809b73);
+            
+        
+
+        marker_c93d1abeb7a90ac1d97583ed2a7f8a0c.bindPopup(popup_7e57fe9fa6464f81e04fbad8a7ce50bf)
+        ;
+
+        
+    
+    
+                marker_c93d1abeb7a90ac1d97583ed2a7f8a0c.setIcon(icon_2d94448b1ab2b0c7b2fa2a5af12676d3);
+            
+    
+            var marker_5685a53ce9e2723ce10eeb2b7ee131ab = L.marker(
+                [43.1132592, 12.3846759],
+                {
+}
+            ).addTo(map_a7c9926de74c41335f42b472fce98067);
+        
+    
+            var icon_72394c8f74a19aba33a9e17504872adb = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightblue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_ca30c205e4b1c6a7068a58a0972d2668 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_38df21e5716777c6523fc5f975557cd2 = $(`<div id="html_38df21e5716777c6523fc5f975557cd2" style="width: 100.0%; height: 100.0%;">     <div style="font-size:14px; line-height:1.5;">         <b>📍 Perugia, Umbria, Italia</b><br>         CAP: 06123<br>         Clienti: <b>1</b>     </div>     </div>`)[0];
+                popup_ca30c205e4b1c6a7068a58a0972d2668.setContent(html_38df21e5716777c6523fc5f975557cd2);
+            
+        
+
+        marker_5685a53ce9e2723ce10eeb2b7ee131ab.bindPopup(popup_ca30c205e4b1c6a7068a58a0972d2668)
+        ;
+
+        
+    
+    
+                marker_5685a53ce9e2723ce10eeb2b7ee131ab.setIcon(icon_72394c8f74a19aba33a9e17504872adb);
+            
+    
+            var marker_46703c34759d47d140f61eb7a0a1dbde = L.marker(
+                [44.6635621, 10.8843807],
+                {
+}
+            ).addTo(map_a7c9926de74c41335f42b472fce98067);
+        
+    
+            var icon_fb34f62cf36f2f0834feb8c132527d92 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightblue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_292b4388e3fe8be6f063bd66b0713a03 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_1f09021fd14af2080c1cc24fed986cec = $(`<div id="html_1f09021fd14af2080c1cc24fed986cec" style="width: 100.0%; height: 100.0%;">     <div style="font-size:14px; line-height:1.5;">         <b>📍 San Faustino-Madonnina-Quattroville, Tre Olmi, Modena, Emilia-Romagna, Italia</b><br>         CAP: 41123<br>         Clienti: <b>1</b>     </div>     </div>`)[0];
+                popup_292b4388e3fe8be6f063bd66b0713a03.setContent(html_1f09021fd14af2080c1cc24fed986cec);
+            
+        
+
+        marker_46703c34759d47d140f61eb7a0a1dbde.bindPopup(popup_292b4388e3fe8be6f063bd66b0713a03)
+        ;
+
+        
+    
+    
+                marker_46703c34759d47d140f61eb7a0a1dbde.setIcon(icon_fb34f62cf36f2f0834feb8c132527d92);
+            
+    
+            var marker_b783ea04092636f3fd5171d58c129581 = L.marker(
+                [37.4893362, 15.011373],
+                {
+}
+            ).addTo(map_a7c9926de74c41335f42b472fce98067);
+        
+    
+            var icon_b6506b97217bf4e2ee9e0e72914ab52b = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightblue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_20fdb1e643f4e8992feb39b5b06f6080 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_5fc4c94758327c0d6bb48d1c7166a5d6 = $(`<div id="html_5fc4c94758327c0d6bb48d1c7166a5d6" style="width: 100.0%; height: 100.0%;">     <div style="font-size:14px; line-height:1.5;">         <b>📍 Misterbianco, Catania, Sicilia, Italia</b><br>         CAP: 95045<br>         Clienti: <b>1</b>     </div>     </div>`)[0];
+                popup_20fdb1e643f4e8992feb39b5b06f6080.setContent(html_5fc4c94758327c0d6bb48d1c7166a5d6);
+            
+        
+
+        marker_b783ea04092636f3fd5171d58c129581.bindPopup(popup_20fdb1e643f4e8992feb39b5b06f6080)
+        ;
+
+        
+    
+    
+                marker_b783ea04092636f3fd5171d58c129581.setIcon(icon_b6506b97217bf4e2ee9e0e72914ab52b);
+            
+    
+            var marker_f96efd49c292a82d3c294574ae5a5675 = L.marker(
+                [41.6840723, 15.3851289],
+                {
+}
+            ).addTo(map_a7c9926de74c41335f42b472fce98067);
+        
+    
+            var icon_a0588b66d8847eddb107b893f506af59 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightblue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_c69d6ae81decf243503ca5ca70f53dd3 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_838589b4e2260985bf2d80d8b5c8b92c = $(`<div id="html_838589b4e2260985bf2d80d8b5c8b92c" style="width: 100.0%; height: 100.0%;">     <div style="font-size:14px; line-height:1.5;">         <b>📍 San Severo, Foggia, Puglia, Italia</b><br>         CAP: 71016<br>         Clienti: <b>1</b>     </div>     </div>`)[0];
+                popup_c69d6ae81decf243503ca5ca70f53dd3.setContent(html_838589b4e2260985bf2d80d8b5c8b92c);
+            
+        
+
+        marker_f96efd49c292a82d3c294574ae5a5675.bindPopup(popup_c69d6ae81decf243503ca5ca70f53dd3)
+        ;
+
+        
+    
+    
+                marker_f96efd49c292a82d3c294574ae5a5675.setIcon(icon_a0588b66d8847eddb107b893f506af59);
+            
+    
+            var marker_8450c27406aef789e755905ea9ec9d9d = L.marker(
+                [38.1098331, 15.5075597],
+                {
+}
+            ).addTo(map_a7c9926de74c41335f42b472fce98067);
+        
+    
+            var icon_b9847479147ca06f412efc86ef2b5edb = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightblue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_0733515804dcbeb5cce9ba5148ca2ebe = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_ddf52fe0d45ca571dcb249d0d7a283f3 = $(`<div id="html_ddf52fe0d45ca571dcb249d0d7a283f3" style="width: 100.0%; height: 100.0%;">     <div style="font-size:14px; line-height:1.5;">         <b>📍 I Circoscrizione, Santo Stefano di Briga, Messina, Sicilia, Italia</b><br>         CAP: 98135<br>         Clienti: <b>1</b>     </div>     </div>`)[0];
+                popup_0733515804dcbeb5cce9ba5148ca2ebe.setContent(html_ddf52fe0d45ca571dcb249d0d7a283f3);
+            
+        
+
+        marker_8450c27406aef789e755905ea9ec9d9d.bindPopup(popup_0733515804dcbeb5cce9ba5148ca2ebe)
+        ;
+
+        
+    
+    
+                marker_8450c27406aef789e755905ea9ec9d9d.setIcon(icon_b9847479147ca06f412efc86ef2b5edb);
+            
+    
+            var marker_c5a0a0a373cf265795518f101cdf5bdc = L.marker(
+                [38.6879978, 16.5462394],
+                {
+}
+            ).addTo(map_a7c9926de74c41335f42b472fce98067);
+        
+    
+            var icon_75fdfa542f835166e1a57fb1310954b4 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightblue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_3597ec014e699a8a011f434145079658 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_89c8251a51069c8c29abef56fc59495e = $(`<div id="html_89c8251a51069c8c29abef56fc59495e" style="width: 100.0%; height: 100.0%;">     <div style="font-size:14px; line-height:1.5;">         <b>📍 Soverato, Catanzaro, Calabria, Italia</b><br>         CAP: 88068<br>         Clienti: <b>1</b>     </div>     </div>`)[0];
+                popup_3597ec014e699a8a011f434145079658.setContent(html_89c8251a51069c8c29abef56fc59495e);
+            
+        
+
+        marker_c5a0a0a373cf265795518f101cdf5bdc.bindPopup(popup_3597ec014e699a8a011f434145079658)
+        ;
+
+        
+    
+    
+                marker_c5a0a0a373cf265795518f101cdf5bdc.setIcon(icon_75fdfa542f835166e1a57fb1310954b4);
+            
+    
+            var marker_1674c79c6b1091ac6ce6b782e29fb7af = L.marker(
+                [41.8778637, 12.6743594],
+                {
+}
+            ).addTo(map_a7c9926de74c41335f42b472fce98067);
+        
+    
+            var icon_c191f6e5ba09c8e93db32ce8ae89f898 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightblue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_95601ec1a1d2f1d1a3b540cb9e31b2bc = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_f64b0ab473c670f5dcd2ffb5184cc298 = $(`<div id="html_f64b0ab473c670f5dcd2ffb5184cc298" style="width: 100.0%; height: 100.0%;">     <div style="font-size:14px; line-height:1.5;">         <b>📍 Borghesiana, Finocchio, Roma, Roma Capitale, Lazio, Italia</b><br>         CAP: 00132<br>         Clienti: <b>1</b>     </div>     </div>`)[0];
+                popup_95601ec1a1d2f1d1a3b540cb9e31b2bc.setContent(html_f64b0ab473c670f5dcd2ffb5184cc298);
+            
+        
+
+        marker_1674c79c6b1091ac6ce6b782e29fb7af.bindPopup(popup_95601ec1a1d2f1d1a3b540cb9e31b2bc)
+        ;
+
+        
+    
+    
+                marker_1674c79c6b1091ac6ce6b782e29fb7af.setIcon(icon_c191f6e5ba09c8e93db32ce8ae89f898);
+            
+    
+            var marker_91027d393cc5c44a6386c65589526d40 = L.marker(
+                [41.8694651, 12.5288258],
+                {
+}
+            ).addTo(map_a7c9926de74c41335f42b472fce98067);
+        
+    
+            var icon_f573d79be69755c45a0211a2d8077f55 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightblue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_3ac305158cd63e963ddbd252e6891161 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_eb3fbed6be8119afc1c975ea2f427c99 = $(`<div id="html_eb3fbed6be8119afc1c975ea2f427c99" style="width: 100.0%; height: 100.0%;">     <div style="font-size:14px; line-height:1.5;">         <b>📍 Appio-Latino, Roma, Roma Capitale, Lazio, Italia</b><br>         CAP: 00179<br>         Clienti: <b>1</b>     </div>     </div>`)[0];
+                popup_3ac305158cd63e963ddbd252e6891161.setContent(html_eb3fbed6be8119afc1c975ea2f427c99);
+            
+        
+
+        marker_91027d393cc5c44a6386c65589526d40.bindPopup(popup_3ac305158cd63e963ddbd252e6891161)
+        ;
+
+        
+    
+    
+                marker_91027d393cc5c44a6386c65589526d40.setIcon(icon_f573d79be69755c45a0211a2d8077f55);
+            
+    
+            var marker_950acb266bacc28882047182442978b2 = L.marker(
+                [45.6926861, 9.6923194],
+                {
+}
+            ).addTo(map_a7c9926de74c41335f42b472fce98067);
+        
+    
+            var icon_1f362a8bfe7f9775480c4d651b80e021 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightblue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_c7b44d3854a48b2ea8236641d03ee51e = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_ca0962a32b86f0f395df118638e01ffd = $(`<div id="html_ca0962a32b86f0f395df118638e01ffd" style="width: 100.0%; height: 100.0%;">     <div style="font-size:14px; line-height:1.5;">         <b>📍 Boccaleone, Bergamo, Lombardia, Italia</b><br>         CAP: 24125<br>         Clienti: <b>1</b>     </div>     </div>`)[0];
+                popup_c7b44d3854a48b2ea8236641d03ee51e.setContent(html_ca0962a32b86f0f395df118638e01ffd);
+            
+        
+
+        marker_950acb266bacc28882047182442978b2.bindPopup(popup_c7b44d3854a48b2ea8236641d03ee51e)
+        ;
+
+        
+    
+    
+                marker_950acb266bacc28882047182442978b2.setIcon(icon_1f362a8bfe7f9775480c4d651b80e021);
+            
+    
+            var marker_3c745a76d7c313a78ce317d0d14dc83d = L.marker(
+                [46.2759439, 9.671965],
+                {
+}
+            ).addTo(map_a7c9926de74c41335f42b472fce98067);
+        
+    
+            var icon_8ec4ab979cc9a742258458f2a697f7d8 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightblue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_e8d67a1b401fb6afd2fe0b267b2b7d1b = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_7ea5c46a0d779ac35bbd0bcd4f2ce052 = $(`<div id="html_7ea5c46a0d779ac35bbd0bcd4f2ce052" style="width: 100.0%; height: 100.0%;">     <div style="font-size:14px; line-height:1.5;">         <b>📍 Zoccane, San Giacomo Filippo, Val Masino, Comunità montana della Valchiavenna, Sondrio, Lombardia, Italia</b><br>         CAP: 23020<br>         Clienti: <b>1</b>     </div>     </div>`)[0];
+                popup_e8d67a1b401fb6afd2fe0b267b2b7d1b.setContent(html_7ea5c46a0d779ac35bbd0bcd4f2ce052);
+            
+        
+
+        marker_3c745a76d7c313a78ce317d0d14dc83d.bindPopup(popup_e8d67a1b401fb6afd2fe0b267b2b7d1b)
+        ;
+
+        
+    
+    
+                marker_3c745a76d7c313a78ce317d0d14dc83d.setIcon(icon_8ec4ab979cc9a742258458f2a697f7d8);
+            
+    
+            var marker_fa9b7ff70500cda291f8dc4a508a4ce3 = L.marker(
+                [42.1462172, 12.4411492],
+                {
+}
+            ).addTo(map_a7c9926de74c41335f42b472fce98067);
+        
+    
+            var icon_da65a1e004f3ee3c4bf71b4125c7375e = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightblue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_e7a274ffb1f7a938df9d90a3a4e83174 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_07eec78de81db5d6d8cb126b2c9548a5 = $(`<div id="html_07eec78de81db5d6d8cb126b2c9548a5" style="width: 100.0%; height: 100.0%;">     <div style="font-size:14px; line-height:1.5;">         <b>📍 Magliano Romano, Roma Capitale, Lazio, Italia</b><br>         CAP: 00060<br>         Clienti: <b>1</b>     </div>     </div>`)[0];
+                popup_e7a274ffb1f7a938df9d90a3a4e83174.setContent(html_07eec78de81db5d6d8cb126b2c9548a5);
+            
+        
+
+        marker_fa9b7ff70500cda291f8dc4a508a4ce3.bindPopup(popup_e7a274ffb1f7a938df9d90a3a4e83174)
+        ;
+
+        
+    
+    
+                marker_fa9b7ff70500cda291f8dc4a508a4ce3.setIcon(icon_da65a1e004f3ee3c4bf71b4125c7375e);
+            
+    
+            var marker_a73a145e06f624473c6947eecf030925 = L.marker(
+                [43.0274994, 13.1762265],
+                {
+}
+            ).addTo(map_a7c9926de74c41335f42b472fce98067);
+        
+    
+            var icon_c7df92bec9964e28b5839e3990e01d8e = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightblue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_480f36184ded749746f43c1fa0e59853 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_1e896fee9da988f64cbb73e7b5735df4 = $(`<div id="html_1e896fee9da988f64cbb73e7b5735df4" style="width: 100.0%; height: 100.0%;">     <div style="font-size:14px; line-height:1.5;">         <b>📍 Fiastra, Macerata, Marche, Italia</b><br>         CAP: 62035<br>         Clienti: <b>1</b>     </div>     </div>`)[0];
+                popup_480f36184ded749746f43c1fa0e59853.setContent(html_1e896fee9da988f64cbb73e7b5735df4);
+            
+        
+
+        marker_a73a145e06f624473c6947eecf030925.bindPopup(popup_480f36184ded749746f43c1fa0e59853)
+        ;
+
+        
+    
+    
+                marker_a73a145e06f624473c6947eecf030925.setIcon(icon_c7df92bec9964e28b5839e3990e01d8e);
+            
+    
+            var marker_22b5e0642acfe2ee2af631c7ac0ba6f2 = L.marker(
+                [42.6226853, 12.7885185],
+                {
+}
+            ).addTo(map_a7c9926de74c41335f42b472fce98067);
+        
+    
+            var icon_32820b6c7b339374e75aa166d148490b = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightblue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_0c08c00d0a72bf176c4e2b35405b32d2 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_22dbb34bc787ead02d2979422d3c35da = $(`<div id="html_22dbb34bc787ead02d2979422d3c35da" style="width: 100.0%; height: 100.0%;">     <div style="font-size:14px; line-height:1.5;">         <b>📍 Ferentillo, Terni, Umbria, Italia</b><br>         CAP: 05034<br>         Clienti: <b>1</b>     </div>     </div>`)[0];
+                popup_0c08c00d0a72bf176c4e2b35405b32d2.setContent(html_22dbb34bc787ead02d2979422d3c35da);
+            
+        
+
+        marker_22b5e0642acfe2ee2af631c7ac0ba6f2.bindPopup(popup_0c08c00d0a72bf176c4e2b35405b32d2)
+        ;
+
+        
+    
+    
+                marker_22b5e0642acfe2ee2af631c7ac0ba6f2.setIcon(icon_32820b6c7b339374e75aa166d148490b);
+            
+    
+            var marker_7de4188019532782c9210595ba5b46e9 = L.marker(
+                [41.9718771, 12.4422571],
+                {
+}
+            ).addTo(map_a7c9926de74c41335f42b472fce98067);
+        
+    
+            var icon_9356c6c1c141cec60af565c79e5f1036 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightblue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_6bdf72c9a83cb32b72280154296d6439 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_9d4a7ade381a4fc47b4529504747ddc3 = $(`<div id="html_9d4a7ade381a4fc47b4529504747ddc3" style="width: 100.0%; height: 100.0%;">     <div style="font-size:14px; line-height:1.5;">         <b>📍 Tomba di Nerone, Roma, Roma Capitale, Lazio, Italia</b><br>         CAP: 00189<br>         Clienti: <b>1</b>     </div>     </div>`)[0];
+                popup_6bdf72c9a83cb32b72280154296d6439.setContent(html_9d4a7ade381a4fc47b4529504747ddc3);
+            
+        
+
+        marker_7de4188019532782c9210595ba5b46e9.bindPopup(popup_6bdf72c9a83cb32b72280154296d6439)
+        ;
+
+        
+    
+    
+                marker_7de4188019532782c9210595ba5b46e9.setIcon(icon_9356c6c1c141cec60af565c79e5f1036);
+            
+    
+            var marker_05ee9bb2a1e94975fd4043c8929ced4b = L.marker(
+                [37.4422469, 13.6299241],
+                {
+}
+            ).addTo(map_a7c9926de74c41335f42b472fce98067);
+        
+    
+            var icon_b340f48bd629551e9701f21d5c91b0e2 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightblue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_f0b6414805b606fb7844a3e36d3f312b = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_1190afc65e3252cf4529d43e68bf8ddc = $(`<div id="html_1190afc65e3252cf4529d43e68bf8ddc" style="width: 100.0%; height: 100.0%;">     <div style="font-size:14px; line-height:1.5;">         <b>📍 Aragona, Agrigento, Sicilia, Italia</b><br>         CAP: 92020<br>         Clienti: <b>1</b>     </div>     </div>`)[0];
+                popup_f0b6414805b606fb7844a3e36d3f312b.setContent(html_1190afc65e3252cf4529d43e68bf8ddc);
+            
+        
+
+        marker_05ee9bb2a1e94975fd4043c8929ced4b.bindPopup(popup_f0b6414805b606fb7844a3e36d3f312b)
+        ;
+
+        
+    
+    
+                marker_05ee9bb2a1e94975fd4043c8929ced4b.setIcon(icon_b340f48bd629551e9701f21d5c91b0e2);
+            
+    
+            var marker_3832c1d284d05a61b4d8273ececbf710 = L.marker(
+                [43.081367, 12.3301385],
+                {
+}
+            ).addTo(map_a7c9926de74c41335f42b472fce98067);
+        
+    
+            var icon_51f3755f7f197086303fb3d82d306b13 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightblue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_01c7abdfb4fb4c3aed47076e366f4064 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_73197ce18711e914ff8e3da241eba75f = $(`<div id="html_73197ce18711e914ff8e3da241eba75f" style="width: 100.0%; height: 100.0%;">     <div style="font-size:14px; line-height:1.5;">         <b>📍 Perugia, Umbria, Italia</b><br>         CAP: 06132<br>         Clienti: <b>1</b>     </div>     </div>`)[0];
+                popup_01c7abdfb4fb4c3aed47076e366f4064.setContent(html_73197ce18711e914ff8e3da241eba75f);
+            
+        
+
+        marker_3832c1d284d05a61b4d8273ececbf710.bindPopup(popup_01c7abdfb4fb4c3aed47076e366f4064)
+        ;
+
+        
+    
+    
+                marker_3832c1d284d05a61b4d8273ececbf710.setIcon(icon_51f3755f7f197086303fb3d82d306b13);
+            
+    
+            var marker_c85d21563cb0fe230858b66c36397974 = L.marker(
+                [43.1219458, 12.3040442],
+                {
+}
+            ).addTo(map_a7c9926de74c41335f42b472fce98067);
+        
+    
+            var icon_7de0bb8d873fdd23168c9b0ec70095f0 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightblue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_908c283f51910e00ece5a1732c0c9644 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_f128a161e69a71cb88afc6bccb842ca8 = $(`<div id="html_f128a161e69a71cb88afc6bccb842ca8" style="width: 100.0%; height: 100.0%;">     <div style="font-size:14px; line-height:1.5;">         <b>📍 Corciano, Perugia, Umbria, Italia</b><br>         CAP: 06073<br>         Clienti: <b>1</b>     </div>     </div>`)[0];
+                popup_908c283f51910e00ece5a1732c0c9644.setContent(html_f128a161e69a71cb88afc6bccb842ca8);
+            
+        
+
+        marker_c85d21563cb0fe230858b66c36397974.bindPopup(popup_908c283f51910e00ece5a1732c0c9644)
+        ;
+
+        
+    
+    
+                marker_c85d21563cb0fe230858b66c36397974.setIcon(icon_7de0bb8d873fdd23168c9b0ec70095f0);
+            
+    
+            var marker_31eb53c1f2e8bf505583bf287ce8a121 = L.marker(
+                [41.7382435, 12.2729069],
+                {
+}
+            ).addTo(map_a7c9926de74c41335f42b472fce98067);
+        
+    
+            var icon_78bd7e654a7fc9a6ba85d29f2b5cca2b = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightblue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_dbf502e8ee939170cc2b97401af42463 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_0957a86aebba25a74bec6ec32988d418 = $(`<div id="html_0957a86aebba25a74bec6ec32988d418" style="width: 100.0%; height: 100.0%;">     <div style="font-size:14px; line-height:1.5;">         <b>📍 Lido di Ostia Ponente, Lido di Ostia, Roma, Roma Capitale, Lazio, Italia</b><br>         CAP: 00121<br>         Clienti: <b>1</b>     </div>     </div>`)[0];
+                popup_dbf502e8ee939170cc2b97401af42463.setContent(html_0957a86aebba25a74bec6ec32988d418);
+            
+        
+
+        marker_31eb53c1f2e8bf505583bf287ce8a121.bindPopup(popup_dbf502e8ee939170cc2b97401af42463)
+        ;
+
+        
+    
+    
+                marker_31eb53c1f2e8bf505583bf287ce8a121.setIcon(icon_78bd7e654a7fc9a6ba85d29f2b5cca2b);
+            
+    
+            var marker_89fa4f9ed0c648c7c580c543b0057438 = L.marker(
+                [41.7486208, 12.3632402],
+                {
+}
+            ).addTo(map_a7c9926de74c41335f42b472fce98067);
+        
+    
+            var icon_9b9bc702c96279c79d06352d15ea3c8e = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightblue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_fce176edeb801185a5dc43170dece11d = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_a37b1b73e431556807b27c75dbbd6fc7 = $(`<div id="html_a37b1b73e431556807b27c75dbbd6fc7" style="width: 100.0%; height: 100.0%;">     <div style="font-size:14px; line-height:1.5;">         <b>📍 Municipio Roma X, Roma, Roma Capitale, Lazio, Italia</b><br>         CAP: 00124<br>         Clienti: <b>1</b>     </div>     </div>`)[0];
+                popup_fce176edeb801185a5dc43170dece11d.setContent(html_a37b1b73e431556807b27c75dbbd6fc7);
+            
+        
+
+        marker_89fa4f9ed0c648c7c580c543b0057438.bindPopup(popup_fce176edeb801185a5dc43170dece11d)
+        ;
+
+        
+    
+    
+                marker_89fa4f9ed0c648c7c580c543b0057438.setIcon(icon_9b9bc702c96279c79d06352d15ea3c8e);
+            
+    
+            var marker_d5b4a540c53e5c81911fc9148e997f47 = L.marker(
+                [41.8556963, 12.5601273],
+                {
+}
+            ).addTo(map_a7c9926de74c41335f42b472fce98067);
+        
+    
+            var icon_b560e8fba0fee758f9ea164d0e6fc415 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightblue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_528aad0128a168c239ce3cc94223470d = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_20a9b70b638f5d4bff459e5219b389ae = $(`<div id="html_20a9b70b638f5d4bff459e5219b389ae" style="width: 100.0%; height: 100.0%;">     <div style="font-size:14px; line-height:1.5;">         <b>📍 Municipio Roma VII, Osteria del Curato, Roma, Roma Capitale, Lazio, Italia</b><br>         CAP: 00174<br>         Clienti: <b>1</b>     </div>     </div>`)[0];
+                popup_528aad0128a168c239ce3cc94223470d.setContent(html_20a9b70b638f5d4bff459e5219b389ae);
+            
+        
+
+        marker_d5b4a540c53e5c81911fc9148e997f47.bindPopup(popup_528aad0128a168c239ce3cc94223470d)
+        ;
+
+        
+    
+    
+                marker_d5b4a540c53e5c81911fc9148e997f47.setIcon(icon_b560e8fba0fee758f9ea164d0e6fc415);
+            
+    
+            var marker_cd23d34aa6fb04e00682fe00c6baaf35 = L.marker(
+                [38.1404178, 13.3392613],
+                {
+}
+            ).addTo(map_a7c9926de74c41335f42b472fce98067);
+        
+    
+            var icon_256315741a3a2e9cd2171c34a75be5f2 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightblue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_c47e69ff9927db9866d884f625d56ada = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_831b9b14a91a5aba802934ac40f9d10f = $(`<div id="html_831b9b14a91a5aba802934ac40f9d10f" style="width: 100.0%; height: 100.0%;">     <div style="font-size:14px; line-height:1.5;">         <b>📍 VIII Circoscrizione, Palermo, Sicilia, Italia</b><br>         CAP: 90144<br>         Clienti: <b>1</b>     </div>     </div>`)[0];
+                popup_c47e69ff9927db9866d884f625d56ada.setContent(html_831b9b14a91a5aba802934ac40f9d10f);
+            
+        
+
+        marker_cd23d34aa6fb04e00682fe00c6baaf35.bindPopup(popup_c47e69ff9927db9866d884f625d56ada)
+        ;
+
+        
+    
+    
+                marker_cd23d34aa6fb04e00682fe00c6baaf35.setIcon(icon_256315741a3a2e9cd2171c34a75be5f2);
+            
+    
+            var marker_107eb4b8fd214515b844089856c6ce86 = L.marker(
+                [41.5458335, 13.5087309],
+                {
+}
+            ).addTo(map_a7c9926de74c41335f42b472fce98067);
+        
+    
+            var icon_b81aa4a091f2bde0a78a7efac2389719 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightblue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_3a67f874d646e01c8f1829e466dc6759 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_ffabda112bf5a017f7a799572def27ed = $(`<div id="html_ffabda112bf5a017f7a799572def27ed" style="width: 100.0%; height: 100.0%;">     <div style="font-size:14px; line-height:1.5;">         <b>📍 Ceprano, Frosinone, Lazio, Italia</b><br>         CAP: 03024<br>         Clienti: <b>1</b>     </div>     </div>`)[0];
+                popup_3a67f874d646e01c8f1829e466dc6759.setContent(html_ffabda112bf5a017f7a799572def27ed);
+            
+        
+
+        marker_107eb4b8fd214515b844089856c6ce86.bindPopup(popup_3a67f874d646e01c8f1829e466dc6759)
+        ;
+
+        
+    
+    
+                marker_107eb4b8fd214515b844089856c6ce86.setIcon(icon_b81aa4a091f2bde0a78a7efac2389719);
+            
+    
+            var marker_befe91598f118c31415c451b6b577386 = L.marker(
+                [42.4062555, 12.8623207],
+                {
+}
+            ).addTo(map_a7c9926de74c41335f42b472fce98067);
+        
+    
+            var icon_83b5437ed832f2d1576d985251b3e27a = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightblue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_20434cc4bd081dbafbe4c2e7786bd73e = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_088645e7609feee1e3a4277f96a7da4d = $(`<div id="html_088645e7609feee1e3a4277f96a7da4d" style="width: 100.0%; height: 100.0%;">     <div style="font-size:14px; line-height:1.5;">         <b>📍 Rieti, Lazio, Italia</b><br>         CAP: 02100<br>         Clienti: <b>1</b>     </div>     </div>`)[0];
+                popup_20434cc4bd081dbafbe4c2e7786bd73e.setContent(html_088645e7609feee1e3a4277f96a7da4d);
+            
+        
+
+        marker_befe91598f118c31415c451b6b577386.bindPopup(popup_20434cc4bd081dbafbe4c2e7786bd73e)
+        ;
+
+        
+    
+    
+                marker_befe91598f118c31415c451b6b577386.setIcon(icon_83b5437ed832f2d1576d985251b3e27a);
+            
+    
+            var marker_9be9ce05f3fe8f8038905b190fc4a7ff = L.marker(
+                [43.3205637, 12.8817326],
+                {
+}
+            ).addTo(map_a7c9926de74c41335f42b472fce98067);
+        
+    
+            var icon_894d57334c2b195e90ad304efbe620c6 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightblue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_b75ad2989812e43fe28cb47cd4631236 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_28e8b754350e36e25e6abf138b9e0155 = $(`<div id="html_28e8b754350e36e25e6abf138b9e0155" style="width: 100.0%; height: 100.0%;">     <div style="font-size:14px; line-height:1.5;">         <b>📍 Fabriano, Ancona, Marche, Italia</b><br>         CAP: 60044<br>         Clienti: <b>1</b>     </div>     </div>`)[0];
+                popup_b75ad2989812e43fe28cb47cd4631236.setContent(html_28e8b754350e36e25e6abf138b9e0155);
+            
+        
+
+        marker_9be9ce05f3fe8f8038905b190fc4a7ff.bindPopup(popup_b75ad2989812e43fe28cb47cd4631236)
+        ;
+
+        
+    
+    
+                marker_9be9ce05f3fe8f8038905b190fc4a7ff.setIcon(icon_894d57334c2b195e90ad304efbe620c6);
+            
+    
+            var marker_85d01692f2f1e3f123712bf3a8fb19a9 = L.marker(
+                [40.2770057, 14.9541537],
+                {
+}
+            ).addTo(map_a7c9926de74c41335f42b472fce98067);
+        
+    
+            var icon_c2812f01a30af78aa7339620880778bf = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightblue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_635a116c722872a166792c81458d8706 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_efc8d329d92db4aebf876d8c97a3ee28 = $(`<div id="html_efc8d329d92db4aebf876d8c97a3ee28" style="width: 100.0%; height: 100.0%;">     <div style="font-size:14px; line-height:1.5;">         <b>📍 Castellabate, Salerno, Campania, Italia</b><br>         CAP: 84048<br>         Clienti: <b>1</b>     </div>     </div>`)[0];
+                popup_635a116c722872a166792c81458d8706.setContent(html_efc8d329d92db4aebf876d8c97a3ee28);
+            
+        
+
+        marker_85d01692f2f1e3f123712bf3a8fb19a9.bindPopup(popup_635a116c722872a166792c81458d8706)
+        ;
+
+        
+    
+    
+                marker_85d01692f2f1e3f123712bf3a8fb19a9.setIcon(icon_c2812f01a30af78aa7339620880778bf);
+            
+    
+            var marker_948235b70c5f1c6b9c051f1fb445e5b3 = L.marker(
+                [46.4876315, 11.3436361],
+                {
+}
+            ).addTo(map_a7c9926de74c41335f42b472fce98067);
+        
+    
+            var icon_0245963b07eb244e6459505379434719 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightblue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_3b5d2f5be7e518f1501e7064f6380d86 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_c21e06d7d33f595027046f968ca49d81 = $(`<div id="html_c21e06d7d33f595027046f968ca49d81" style="width: 100.0%; height: 100.0%;">     <div style="font-size:14px; line-height:1.5;">         <b>📍 Oltrisarco-Aslago - Oberau-Haslach, Bolzano - Bozen, Trentino-Alto Adige/Südtirol, Italia</b><br>         CAP: 39100<br>         Clienti: <b>1</b>     </div>     </div>`)[0];
+                popup_3b5d2f5be7e518f1501e7064f6380d86.setContent(html_c21e06d7d33f595027046f968ca49d81);
+            
+        
+
+        marker_948235b70c5f1c6b9c051f1fb445e5b3.bindPopup(popup_3b5d2f5be7e518f1501e7064f6380d86)
+        ;
+
+        
+    
+    
+                marker_948235b70c5f1c6b9c051f1fb445e5b3.setIcon(icon_0245963b07eb244e6459505379434719);
+            
+    
+            var marker_cd8b106bca9a5bbfee32e9f873c64584 = L.marker(
+                [45.8109592, 8.8253038],
+                {
+}
+            ).addTo(map_a7c9926de74c41335f42b472fce98067);
+        
+    
+            var icon_5ef2170fef18041fb9b45cc2dfb3f32d = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightblue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_12e26aba57fcfb9fa38c989b6ac7c4e2 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_43ed157c763995a83002839774390990 = $(`<div id="html_43ed157c763995a83002839774390990" style="width: 100.0%; height: 100.0%;">     <div style="font-size:14px; line-height:1.5;">         <b>📍 Varese, Lombardia, Italia</b><br>         CAP: 21100<br>         Clienti: <b>1</b>     </div>     </div>`)[0];
+                popup_12e26aba57fcfb9fa38c989b6ac7c4e2.setContent(html_43ed157c763995a83002839774390990);
+            
+        
+
+        marker_cd8b106bca9a5bbfee32e9f873c64584.bindPopup(popup_12e26aba57fcfb9fa38c989b6ac7c4e2)
+        ;
+
+        
+    
+    
+                marker_cd8b106bca9a5bbfee32e9f873c64584.setIcon(icon_5ef2170fef18041fb9b45cc2dfb3f32d);
+            
+    
+            var marker_db149618ea688a3ad493f40c81a6ac31 = L.marker(
+                [45.7609738, 9.3444603],
+                {
+}
+            ).addTo(map_a7c9926de74c41335f42b472fce98067);
+        
+    
+            var icon_fe7e161d703389f6428f8644e7fec68d = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightblue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_46dbc93c6b63a381108a59233c9c2495 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_a50bd4984c02d3d3e6d5f5f924996eae = $(`<div id="html_a50bd4984c02d3d3e6d5f5f924996eae" style="width: 100.0%; height: 100.0%;">     <div style="font-size:14px; line-height:1.5;">         <b>📍 Castello di Brianza, Lecco, Lombardia, Italia</b><br>         CAP: 23884<br>         Clienti: <b>1</b>     </div>     </div>`)[0];
+                popup_46dbc93c6b63a381108a59233c9c2495.setContent(html_a50bd4984c02d3d3e6d5f5f924996eae);
+            
+        
+
+        marker_db149618ea688a3ad493f40c81a6ac31.bindPopup(popup_46dbc93c6b63a381108a59233c9c2495)
+        ;
+
+        
+    
+    
+                marker_db149618ea688a3ad493f40c81a6ac31.setIcon(icon_fe7e161d703389f6428f8644e7fec68d);
+            
+    
+            var marker_76f4dcf541408616033f88c0a6d5d9ee = L.marker(
+                [41.9807088, 12.5180053],
+                {
+}
+            ).addTo(map_a7c9926de74c41335f42b472fce98067);
+        
+    
+            var icon_2ed57e6de03a10240a14aeeb00036287 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightblue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_789d66cd3da0a4e06cbcea5941859497 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_ecae0198a7ad3b093e09b8297dfbcf23 = $(`<div id="html_ecae0198a7ad3b093e09b8297dfbcf23" style="width: 100.0%; height: 100.0%;">     <div style="font-size:14px; line-height:1.5;">         <b>📍 Municipio Roma III, Roma, Roma Capitale, Lazio, Italia</b><br>         CAP: 00138<br>         Clienti: <b>1</b>     </div>     </div>`)[0];
+                popup_789d66cd3da0a4e06cbcea5941859497.setContent(html_ecae0198a7ad3b093e09b8297dfbcf23);
+            
+        
+
+        marker_76f4dcf541408616033f88c0a6d5d9ee.bindPopup(popup_789d66cd3da0a4e06cbcea5941859497)
+        ;
+
+        
+    
+    
+                marker_76f4dcf541408616033f88c0a6d5d9ee.setIcon(icon_2ed57e6de03a10240a14aeeb00036287);
+            
+    
+            var marker_38fe5dae679d6588847a3a24189292fb = L.marker(
+                [40.7850301, 14.4515809],
+                {
+}
+            ).addTo(map_a7c9926de74c41335f42b472fce98067);
+        
+    
+            var icon_6eaafddf3ff44fef124f2a113e905558 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightblue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_042b1221e857fcbe46372f30b5c487fd = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_cc0bd5446ceffd6b08c5685ca1ba4ba0 = $(`<div id="html_cc0bd5446ceffd6b08c5685ca1ba4ba0" style="width: 100.0%; height: 100.0%;">     <div style="font-size:14px; line-height:1.5;">         <b>📍 Boscotrecase, Napoli, Campania, Italia</b><br>         CAP: 80041<br>         Clienti: <b>1</b>     </div>     </div>`)[0];
+                popup_042b1221e857fcbe46372f30b5c487fd.setContent(html_cc0bd5446ceffd6b08c5685ca1ba4ba0);
+            
+        
+
+        marker_38fe5dae679d6588847a3a24189292fb.bindPopup(popup_042b1221e857fcbe46372f30b5c487fd)
+        ;
+
+        
+    
+    
+                marker_38fe5dae679d6588847a3a24189292fb.setIcon(icon_6eaafddf3ff44fef124f2a113e905558);
+            
+    
+            var marker_a4d5c739b9d6636260a13015ef8c4d7f = L.marker(
+                [42.9838478, 12.4194024],
+                {
+}
+            ).addTo(map_a7c9926de74c41335f42b472fce98067);
+        
+    
+            var icon_b23d3028394a0045f69f3df1797e484b = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightblue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_0b8a8de0f112550127f437d02303605e = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_a03e53823d03c16a2f26ed3a76a2b6ed = $(`<div id="html_a03e53823d03c16a2f26ed3a76a2b6ed" style="width: 100.0%; height: 100.0%;">     <div style="font-size:14px; line-height:1.5;">         <b>📍 Deruta, Perugia, Umbria, Italia</b><br>         CAP: 06053<br>         Clienti: <b>1</b>     </div>     </div>`)[0];
+                popup_0b8a8de0f112550127f437d02303605e.setContent(html_a03e53823d03c16a2f26ed3a76a2b6ed);
+            
+        
+
+        marker_a4d5c739b9d6636260a13015ef8c4d7f.bindPopup(popup_0b8a8de0f112550127f437d02303605e)
+        ;
+
+        
+    
+    
+                marker_a4d5c739b9d6636260a13015ef8c4d7f.setIcon(icon_b23d3028394a0045f69f3df1797e484b);
+            
+    
+            var marker_a087565315ce9318bc70989c2d8a5760 = L.marker(
+                [43.159277, 12.463691],
+                {
+}
+            ).addTo(map_a7c9926de74c41335f42b472fce98067);
+        
+    
+            var icon_1da2261b27cf4ee58b7ed9bf459a3724 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightblue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_d8315eac05e2efcff2be2c5022517440 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_6349355ad1ec38c05675b911d540646f = $(`<div id="html_6349355ad1ec38c05675b911d540646f" style="width: 100.0%; height: 100.0%;">     <div style="font-size:14px; line-height:1.5;">         <b>📍 Perugia, Umbria, Italia</b><br>         CAP: 06134<br>         Clienti: <b>1</b>     </div>     </div>`)[0];
+                popup_d8315eac05e2efcff2be2c5022517440.setContent(html_6349355ad1ec38c05675b911d540646f);
+            
+        
+
+        marker_a087565315ce9318bc70989c2d8a5760.bindPopup(popup_d8315eac05e2efcff2be2c5022517440)
+        ;
+
+        
+    
+    
+                marker_a087565315ce9318bc70989c2d8a5760.setIcon(icon_1da2261b27cf4ee58b7ed9bf459a3724);
+            
+    
+            var marker_18b629de51e83b8f93c2fe237887afe4 = L.marker(
+                [40.5540152, 14.2173044],
+                {
+}
+            ).addTo(map_a7c9926de74c41335f42b472fce98067);
+        
+    
+            var icon_d0f5ac870ac5ce85d844128ad985add9 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightblue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_cfcf5248962f86d9c53ee7b7fde16475 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_aadd9c83ee439fcb3a972f1460990464 = $(`<div id="html_aadd9c83ee439fcb3a972f1460990464" style="width: 100.0%; height: 100.0%;">     <div style="font-size:14px; line-height:1.5;">         <b>📍 Anacapri, Napoli, Campania, Italia</b><br>         CAP: 80071<br>         Clienti: <b>1</b>     </div>     </div>`)[0];
+                popup_cfcf5248962f86d9c53ee7b7fde16475.setContent(html_aadd9c83ee439fcb3a972f1460990464);
+            
+        
+
+        marker_18b629de51e83b8f93c2fe237887afe4.bindPopup(popup_cfcf5248962f86d9c53ee7b7fde16475)
+        ;
+
+        
+    
+    
+                marker_18b629de51e83b8f93c2fe237887afe4.setIcon(icon_d0f5ac870ac5ce85d844128ad985add9);
+            
+    
+            var marker_01173efbeef068cdf9a0b74fb4ea2647 = L.marker(
+                [43.31172, 12.3153233],
+                {
+}
+            ).addTo(map_a7c9926de74c41335f42b472fce98067);
+        
+    
+            var icon_376612802e18c7427f657ae6ee528410 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightblue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_fc95ad55d5bba256fd53af15b326b863 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_66616fc2519bb631ed5b2c1a4bd856ee = $(`<div id="html_66616fc2519bb631ed5b2c1a4bd856ee" style="width: 100.0%; height: 100.0%;">     <div style="font-size:14px; line-height:1.5;">         <b>📍 Umbertide, Perugia, Umbria, Italia</b><br>         CAP: 06019<br>         Clienti: <b>1</b>     </div>     </div>`)[0];
+                popup_fc95ad55d5bba256fd53af15b326b863.setContent(html_66616fc2519bb631ed5b2c1a4bd856ee);
+            
+        
+
+        marker_01173efbeef068cdf9a0b74fb4ea2647.bindPopup(popup_fc95ad55d5bba256fd53af15b326b863)
+        ;
+
+        
+    
+    
+                marker_01173efbeef068cdf9a0b74fb4ea2647.setIcon(icon_376612802e18c7427f657ae6ee528410);
+            
+    
+            var marker_b36e10a63befbd34eb50963b62816505 = L.marker(
+                [43.0683911, 12.6062922],
+                {
+}
+            ).addTo(map_a7c9926de74c41335f42b472fce98067);
+        
+    
+            var icon_65888f911ac6390f8f70505a437740fd = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightblue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_a8d434fe9a8c398161c47e63b956aeae = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_0e2908b1df736c06ce2ea7fa7e950bd8 = $(`<div id="html_0e2908b1df736c06ce2ea7fa7e950bd8" style="width: 100.0%; height: 100.0%;">     <div style="font-size:14px; line-height:1.5;">         <b>📍 Assisi, Perugia, Umbria, Italia</b><br>         CAP: 06081<br>         Clienti: <b>1</b>     </div>     </div>`)[0];
+                popup_a8d434fe9a8c398161c47e63b956aeae.setContent(html_0e2908b1df736c06ce2ea7fa7e950bd8);
+            
+        
+
+        marker_b36e10a63befbd34eb50963b62816505.bindPopup(popup_a8d434fe9a8c398161c47e63b956aeae)
+        ;
+
+        
+    
+    
+                marker_b36e10a63befbd34eb50963b62816505.setIcon(icon_65888f911ac6390f8f70505a437740fd);
+            
+    
+            var marker_141133dddd7ca994df688e8861e43598 = L.marker(
+                [41.1115652, 13.8878122],
+                {
+}
+            ).addTo(map_a7c9926de74c41335f42b472fce98067);
+        
+    
+            var icon_d0c045752d7b70241e5db18fb954e594 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightblue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_60297b0f48c23d9a378b5f12d4ce5390 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_ebe79b3cff15cb3eaa8bbbe994468260 = $(`<div id="html_ebe79b3cff15cb3eaa8bbbe994468260" style="width: 100.0%; height: 100.0%;">     <div style="font-size:14px; line-height:1.5;">         <b>📍 Mondragone, Caserta, Campania, Italia</b><br>         CAP: 81034<br>         Clienti: <b>1</b>     </div>     </div>`)[0];
+                popup_60297b0f48c23d9a378b5f12d4ce5390.setContent(html_ebe79b3cff15cb3eaa8bbbe994468260);
+            
+        
+
+        marker_141133dddd7ca994df688e8861e43598.bindPopup(popup_60297b0f48c23d9a378b5f12d4ce5390)
+        ;
+
+        
+    
+    
+                marker_141133dddd7ca994df688e8861e43598.setIcon(icon_d0c045752d7b70241e5db18fb954e594);
+            
+    
+            var marker_750cf1f6fc90bd1483d6f1887892015a = L.marker(
+                [42.9790547, 12.1559228],
+                {
+}
+            ).addTo(map_a7c9926de74c41335f42b472fce98067);
+        
+    
+            var icon_f7988aa9fb6cbf5dc17b60d89ad432a2 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightblue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_79f82186d137a00c861a78b5b4f2ea42 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_0a5ebb7bc4065a8196f99dc8c892b400 = $(`<div id="html_0a5ebb7bc4065a8196f99dc8c892b400" style="width: 100.0%; height: 100.0%;">     <div style="font-size:14px; line-height:1.5;">         <b>📍 Piegaro, Perugia, Umbria, Italia</b><br>         CAP: 06066<br>         Clienti: <b>1</b>     </div>     </div>`)[0];
+                popup_79f82186d137a00c861a78b5b4f2ea42.setContent(html_0a5ebb7bc4065a8196f99dc8c892b400);
+            
+        
+
+        marker_750cf1f6fc90bd1483d6f1887892015a.bindPopup(popup_79f82186d137a00c861a78b5b4f2ea42)
+        ;
+
+        
+    
+    
+                marker_750cf1f6fc90bd1483d6f1887892015a.setIcon(icon_f7988aa9fb6cbf5dc17b60d89ad432a2);
+            
+    
+            var marker_2e9455492626894b773e50f091166b3b = L.marker(
+                [44.636834, 10.930955],
+                {
+}
+            ).addTo(map_a7c9926de74c41335f42b472fce98067);
+        
+    
+            var icon_5795f2eeb27a367da24f634024f82857 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightblue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_9cf374238560157725e636fffc0c794c = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_345c16b79b65e6991551646906f53c10 = $(`<div id="html_345c16b79b65e6991551646906f53c10" style="width: 100.0%; height: 100.0%;">     <div style="font-size:14px; line-height:1.5;">         <b>📍 Buon Pastore-Sant'Agnese-San Damaso, Vaciglio, Modena, Emilia-Romagna, Italia</b><br>         CAP: 41100<br>         Clienti: <b>1</b>     </div>     </div>`)[0];
+                popup_9cf374238560157725e636fffc0c794c.setContent(html_345c16b79b65e6991551646906f53c10);
+            
+        
+
+        marker_2e9455492626894b773e50f091166b3b.bindPopup(popup_9cf374238560157725e636fffc0c794c)
+        ;
+
+        
+    
+    
+                marker_2e9455492626894b773e50f091166b3b.setIcon(icon_5795f2eeb27a367da24f634024f82857);
+            
+    
+            var marker_aee2b09a3b66736019f4f6fafafa4b8e = L.marker(
+                [41.9434275, 12.422017],
+                {
+}
+            ).addTo(map_a7c9926de74c41335f42b472fce98067);
+        
+    
+            var icon_5ea9448b160b6a9c903ef993d167b50e = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightblue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_47cadcd8532dec1e808a8cf750b71254 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_24a7816ddc45d1130c35153f284d2012 = $(`<div id="html_24a7816ddc45d1130c35153f284d2012" style="width: 100.0%; height: 100.0%;">     <div style="font-size:14px; line-height:1.5;">         <b>📍 Della Vittoria, Roma, Roma Capitale, Lazio, Italia</b><br>         CAP: 00168<br>         Clienti: <b>1</b>     </div>     </div>`)[0];
+                popup_47cadcd8532dec1e808a8cf750b71254.setContent(html_24a7816ddc45d1130c35153f284d2012);
+            
+        
+
+        marker_aee2b09a3b66736019f4f6fafafa4b8e.bindPopup(popup_47cadcd8532dec1e808a8cf750b71254)
+        ;
+
+        
+    
+    
+                marker_aee2b09a3b66736019f4f6fafafa4b8e.setIcon(icon_5ea9448b160b6a9c903ef993d167b50e);
+            
+    
+            var marker_d3525133fc6ec42d7f4db7b0667cd925 = L.marker(
+                [45.6279963, 9.5988813],
+                {
+}
+            ).addTo(map_a7c9926de74c41335f42b472fce98067);
+        
+    
+            var icon_308df539bbb193d8cc49c657257ee8e2 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightblue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_142fb964a25feae851309aa79e5fba8c = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_9bdeab2847d5527a2a7f58b906e2a3f2 = $(`<div id="html_9bdeab2847d5527a2a7f58b906e2a3f2" style="width: 100.0%; height: 100.0%;">     <div style="font-size:14px; line-height:1.5;">         <b>📍 Osio Sopra, Bergamo, Lombardia, Italia</b><br>         CAP: 24040<br>         Clienti: <b>1</b>     </div>     </div>`)[0];
+                popup_142fb964a25feae851309aa79e5fba8c.setContent(html_9bdeab2847d5527a2a7f58b906e2a3f2);
+            
+        
+
+        marker_d3525133fc6ec42d7f4db7b0667cd925.bindPopup(popup_142fb964a25feae851309aa79e5fba8c)
+        ;
+
+        
+    
+    
+                marker_d3525133fc6ec42d7f4db7b0667cd925.setIcon(icon_308df539bbb193d8cc49c657257ee8e2);
+            
+    
+            var marker_88b87cde55266cb0e51526fb731a2fdd = L.marker(
+                [38.0852146, 16.1376704],
+                {
+}
+            ).addTo(map_a7c9926de74c41335f42b472fce98067);
+        
+    
+            var icon_665764a9dba7dbcda95209e77d410ece = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightblue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_65172c92dece3e45b178827a22264b2e = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_4bb37a542d6638ee48ab496c8a59a462 = $(`<div id="html_4bb37a542d6638ee48ab496c8a59a462" style="width: 100.0%; height: 100.0%;">     <div style="font-size:14px; line-height:1.5;">         <b>📍 Bianco, Reggio Calabria, Calabria, Italia</b><br>         CAP: 89032<br>         Clienti: <b>1</b>     </div>     </div>`)[0];
+                popup_65172c92dece3e45b178827a22264b2e.setContent(html_4bb37a542d6638ee48ab496c8a59a462);
+            
+        
+
+        marker_88b87cde55266cb0e51526fb731a2fdd.bindPopup(popup_65172c92dece3e45b178827a22264b2e)
+        ;
+
+        
+    
+    
+                marker_88b87cde55266cb0e51526fb731a2fdd.setIcon(icon_665764a9dba7dbcda95209e77d410ece);
+            
+    
+            var marker_5918948c4c0a987ed297b8b9e36502c9 = L.marker(
+                [43.7801459, 10.3710506],
+                {
+}
+            ).addTo(map_a7c9926de74c41335f42b472fce98067);
+        
+    
+            var icon_e99c6277610e7e604ba4d89320c794d7 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightblue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_99c3a63be6643ca2a40622e9521b9676 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_24db39e07bea4f09a2d35d9d81861647 = $(`<div id="html_24db39e07bea4f09a2d35d9d81861647" style="width: 100.0%; height: 100.0%;">     <div style="font-size:14px; line-height:1.5;">         <b>📍 San Giuliano Terme, Pisa, Toscana, Italia</b><br>         CAP: 56019<br>         Clienti: <b>1</b>     </div>     </div>`)[0];
+                popup_99c3a63be6643ca2a40622e9521b9676.setContent(html_24db39e07bea4f09a2d35d9d81861647);
+            
+        
+
+        marker_5918948c4c0a987ed297b8b9e36502c9.bindPopup(popup_99c3a63be6643ca2a40622e9521b9676)
+        ;
+
+        
+    
+    
+                marker_5918948c4c0a987ed297b8b9e36502c9.setIcon(icon_e99c6277610e7e604ba4d89320c794d7);
+            
+    
+            var marker_2978d90bb1b8f32fef7114737191e388 = L.marker(
+                [41.8039915, 12.6036289],
+                {
+}
+            ).addTo(map_a7c9926de74c41335f42b472fce98067);
+        
+    
+            var icon_0228e13d8f3bf63ea8b35c2107249a69 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightblue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_0be864d1b8c3b75e4bc970a9a3aa18b7 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_54f3fcd0945355631f00fdad8863dcdf = $(`<div id="html_54f3fcd0945355631f00fdad8863dcdf" style="width: 100.0%; height: 100.0%;">     <div style="font-size:14px; line-height:1.5;">         <b>📍 Ciampino, Roma Capitale, Lazio, Italia</b><br>         CAP: 00043<br>         Clienti: <b>1</b>     </div>     </div>`)[0];
+                popup_0be864d1b8c3b75e4bc970a9a3aa18b7.setContent(html_54f3fcd0945355631f00fdad8863dcdf);
+            
+        
+
+        marker_2978d90bb1b8f32fef7114737191e388.bindPopup(popup_0be864d1b8c3b75e4bc970a9a3aa18b7)
+        ;
+
+        
+    
+    
+                marker_2978d90bb1b8f32fef7114737191e388.setIcon(icon_0228e13d8f3bf63ea8b35c2107249a69);
+            
+</script>
+</html>
